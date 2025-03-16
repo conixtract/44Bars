@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+
+# Paths to your existing scripts
+VOLUME_SCRIPT=./volume
+
+# Get Wi-Fi connection
+get_wifi() {
+    SSID=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2)
+    if [ -z "$SSID" ]; then
+        echo "󰤭 Disconnected"
+    else
+        echo "󰤨 $SSID"
+    fi
+}
+
+# Get CPU usage
+get_cpu() {
+    # Read initial CPU stats
+    read -r cpu user nice system idle iowait irq softirq steal guest < /proc/stat
+    total=$((user + nice + system + idle + iowait + irq + softirq + steal))
+
+    # Wait briefly
+    sleep 0.5
+
+    # Read CPU stats again
+    read -r cpu2 user2 nice2 system2 idle2 iowait2 irq2 softirq2 steal2 guest2 < /proc/stat
+    total2=$((user2 + nice2 + system2 + idle2 + iowait2 + irq2 + softirq2 + steal2))
+
+    # Calculate idle and total deltas
+    idle_diff=$((idle2 - idle))
+    total_diff=$((total2 - total))
+
+    # Calculate CPU usage
+    cpu_usage=$((100 * (total_diff - idle_diff) / total_diff))
+
+    # Return result
+    echo " $cpu_usage%"
+}
+
+# Get Date + Time
+get_datetime() {
+    echo "$(date '+%a %d %b %H:%M')"
+}
+
+get_volume() {
+    # Get volume using amixer
+    VOLUME=$(amixer get Master | grep -oP '\d+%' | head -n1 | tr -d '%')
+
+    # Get mute status
+    MUTE=$(amixer get Master | grep -oP '\[on\]|\[off\]' | head -n1)
+
+    # Output volume and mute status
+    if [ "$MUTE" = "[off]" ]; then
+        echo "Muted"
+    else
+        echo "$VOLUME%"
+    fi
+}
+
+get_battery() {
+    # Get battery info using acpi
+    INFO=$(acpi -b)
+
+    # Extract percentage and status
+    PERCENT=$(echo "$INFO" | grep -oP '\d+%' | tr -d '%')
+    STATUS=$(echo "$INFO" | grep -oP 'Charging|Discharging|Full')
+
+    # Output status and percentage
+    echo "$STATUS $PERCENT%"
+}
+
+# Output JSON for swaybar
+while :
+do
+    WIFI=$(get_wifi)
+    CPU=$(get_cpu)
+    BATTERY=$(get_battery)       # Use your battery script
+    VOLUME=$(get_volume)         # Use your volume script
+    DATETIME=$(get_datetime)
+
+    echo "$WIFI | $CPU | $BATTERY | $VOLUME | $DATETIME"
+    sleep 1
+done

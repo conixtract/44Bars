@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+SESSION=$XDG_CURRENT_DESKTOP
+
+if [ "$SESSION" == "sway" ]; then
+    sway exit
+elif [ "$SESSION" == "Hyprland" ]; then
+    hyprctl dispatch exit
+else
+    echo "Unsupported desktop environment: $SESSION"
+fi

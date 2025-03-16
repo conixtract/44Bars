@@ -1,0 +1,221 @@
+{
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "workbench.preferredDarkColorTheme": "Dracula",
+    "C_Cpp.autocompleteAddParentheses": true,
+    "C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "sameLine",
+    "C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "sameLine",
+    "C_Cpp.vcFormat.newLine.beforeOpenBrace.lambda": "sameLine",
+    "C_Cpp.vcFormat.newLine.beforeOpenBrace.namespace": "sameLine",
+    "C_Cpp.vcFormat.newLine.beforeOpenBrace.type": "sameLine",
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, TabWidth: 4, ColumnLimit: 0}",
+    "editor.formatOnPaste": true,
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "workbench.settings.applyToAllProfiles": [
+        "C_Cpp.clang_format_style",
+        "C_Cpp.clang_format_fallbackStyle"
+    ],
+    "C_Cpp.intelliSenseEngineFallback": "enabled",
+    "editor.formatOnType": true,
+    "universalFormatOnType.newline": [
+        "bat",
+        "clojure",
+        "fsharp",
+        "go",
+        "powershell",
+        "python",
+        "r",
+        "ruby",
+        "shellscript",
+        "swift",
+        "vb",
+        "cpp"
+    ],
+    "remote.SSH.configFile": "~/.ssh/config",
+    "window.menuBarVisibility": "toggle",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk",
+            "tools": [
+                "latexmk"
+            ]
+        },
+        {
+            "name": "latexmk (latexmkrc)",
+            "tools": [
+                "latexmk_rconly"
+            ]
+        },
+        {
+            "name": "latexmk (lualatex)",
+            "tools": [
+                "lualatexmk"
+            ]
+        },
+        {
+            "name": "latexmk (xelatex)",
+            "tools": [
+                "xelatexmk"
+            ]
+        },
+        {
+            "name": "pdflatex -> bibtex -> pdflatex * 2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "Compile Rnw files",
+            "tools": [
+                "rnw2tex",
+                "latexmk"
+            ]
+        },
+        {
+            "name": "Compile Jnw files",
+            "tools": [
+                "jnw2tex",
+                "latexmk"
+            ]
+        },
+        {
+            "name": "Compile Pnw files",
+            "tools": [
+                "pnw2tex",
+                "latexmk"
+            ]
+        },
+        {
+            "name": "tectonic",
+            "tools": [
+                "tectonic"
+            ]
+        }
+    ],
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[nix]": {
+        "editor.defaultFormatter": "jnoortheen.nix-ide"
+    },
+    "latex-workshop.bibtex-format.tab": "4 spaces",
+    "C_Cpp.default.compilerPath": "",
+    "git.openRepositoryInParentFolders": "never",
+    "cmake.buildBeforeRun": false,
+    "cmake.options.statusBarVisibility": "compact",
+    "cmake.showOptionsMovedNotification": false,
+    "git.statusLimit": 0,
+    "editor.minimap.enabled": false,
+    "terminal.integrated.tabs.location": "left",
+    "workbench.colorTheme": "Dracula Theme",
+    "[latex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop"
+    },
+    "gitlens.ai.experimental.provider": "openai",
+    "gitlens.ai.experimental.openai.model": "gpt-4-turbo-preview",
+    "cmake.options.advanced": {
+        "build": {
+            "statusBarVisibility": "inherit",
+            "inheritDefault": "visible"
+        },
+        "launch": {
+            "statusBarVisibility": "inherit",
+            "inheritDefault": "visible"
+        },
+        "debug": {
+            "statusBarVisibility": "hidden",
+            "inheritDefault": "hidden"
+        },
+        "cpack": {
+            "statusBarVisibility": "hidden",
+            "inheritDefault": "hidden"
+        },
+        "workflow": {
+            "statusBarVisibility": "hidden",
+            "inheritDefault": "hidden"
+        },
+        "launchTarget": {
+            "statusBarVisibility": "hidden",
+            "inheritDefault": "hidden"
+        },
+        "buildTarget": {
+            "statusBarVisibility": "hidden",
+            "inheritDefault": "hidden"
+        }
+    },
+    "cSpell.userWords": [
+        "octree"
+    ],
+    "grammarly.files.include": [
+        "**/readme.md",
+        "**/README.md",
+        "**/*.txt",
+        "**/*.tex"
+    ],
+    "grammarly.config.documentDialect": "american",
+    "grammarly.config.documentDomain": "academic",
+    "grammarly.config.suggestionCategories.informalPronounsAcademic": "on",
+    "latex-workshop.latex.autoBuild.run": "never",
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "grammarly.config.suggestionCategories.conjugationAtStartOfSentence": "on",
+    "window.zoomLevel": -1,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "git.confirmSync": false,
+    "[handlebars]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "files.associations": {
+        "*.md": "markdown"
+    },
+    "workbench.editorAssociations": {
+        "*.md": "vscode.markdown.preview.editor"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "cSpell.enabled": false,
+    "makefile.configureOnOpen": true,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "files.insertFinalNewline": true,
+    "notebook.insertFinalNewline": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "cmake.showNotAllDocumentsSavedQuestion": false,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]",
+        "?",
+        "!",
+        "todo"
+    ],
+    "todo-tree.general.tagGroups": {
+        "TODO": [
+            "TODO",
+            "todo"
+        ]
+    },
+    "workbench.activityBar.location": "top",
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "workbench.startupEditor": "none"
+    
+}
