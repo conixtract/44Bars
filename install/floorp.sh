@@ -17,7 +17,7 @@ if [ "$1" = "install" ]; then
     exit
 fi
 
-if [ "$1" = "remove"]; then
+if [ "$1" = "remove" ]; then
     remove
     exit
 fi
