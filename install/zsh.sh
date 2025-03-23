@@ -1,11 +1,10 @@
-
 install() {
     sudo apt install -y zsh
     # set as default
     chsh -s $(which zsh)
 }
 
-remove(){
+remove() {
     sudo apt remove zsh
 }
 
@@ -21,4 +20,3 @@ if [ "$1" = "remove" ]; then
 fi
 
 echo "Usage: zsh.sh <install/remove>"
-

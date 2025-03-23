@@ -1,7 +1,8 @@
 #!/bin/bash
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJ_DIR="$SCRIPT_DIR/.."
+PROJ_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+HOME_DIR="$HOME"
 
 ########################################################
 #                installing packages
@@ -9,6 +10,7 @@ PROJ_DIR="$SCRIPT_DIR/.."
 sudo apt update
 
 while IFS= read -r package; do
+    cd $PROJ_DIR
     # Skip empty lines, section headers (lines starting with '['), or comments (lines starting with '#')
     [[ -z "$package" || "$package" =~ ^[[:space:]]*\[ || "$package" =~ ^[[:space:]]*# ]] && continue
 
@@ -25,7 +27,7 @@ done <./packages.ini
 ########################################################
 #                     symlinking
 ########################################################
-mkdir ~/.config -p
-ln -s $PROJ_DIR/config/sway ~/.config/sway
-ln -s $PROJ_DIR/config/alacritty ~/.config/alacritty
-ln -s $PROJ_DIR/config/rofi ~/.config/rofi
+mkdir $HOME_DIR/.config -p
+ln -s $PROJ_DIR/config/sway $HOME_DIR/.config/sway
+ln -s $PROJ_DIR/config/alacritty $HOME_DIR/.config/alacritty
+ln -s $PROJ_DIR/config/rofi $HOME_DIR/.config/rofi

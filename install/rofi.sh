@@ -50,14 +50,13 @@ install() {
   done
 
   # clone and build rofi-wayland repo
-  cd $SCRIPT_DIR
   git clone https://github.com/in0ni/rofi-wayland.git
   cd rofi-wayland
   meson setup build/
   ninja -C build install
 
   # rm build files
-  cd $SCRIPT_DIR
+  cd ../
   rm -rf rofi-wayland
 }
 
