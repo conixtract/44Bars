@@ -22,7 +22,7 @@ set $menu rofi -show
 # exec --no-startup-id swaync
 # exec keepassxc
 exec swaybg -m fill -i /home/forestgump/dev/44Bars/wallpapers/astronaut.png
-# exec /home/forestgump/nixos/home/scripts/battery
+exec /home/forestgump/dev/44Bars/scripts/battery
 
 ### Output configuration
 #
@@ -242,7 +242,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    # status_command /home/forestgump/nixos/home/scripts/status-bar
+    status_command /home/forestgump/dev/44Bars/scripts/status-bar
 
     colors {
         statusline #ffffff

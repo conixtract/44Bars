@@ -18,3 +18,8 @@
 ## General
 
 This repository contains mutliple dotfiles for my different setups. 
+
+## Install
+
+- install git and use `gh auth login`
+- use `su -` and run `install/install.sh` script

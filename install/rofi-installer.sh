@@ -1,29 +1,6 @@
-#!/bin/bash
-
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-# basic install script for the system
-
-usermod -aG sudo forestgump
-
-apt update
-
-base_packages=("sudo" "lightdm" "sway" "swaybg" "rofi")
-
-for package in "${packages[@]}"; do
-    apt install -y "$package"
-done
-
-while IFS= read -r package; do
-    apt install -y "$package"
-done <./packages.ini
-
-# link the config files
-ln -s $SCRIPT_DIR/config/sway ~/.config/sway
-ln -s $SCRIPT_DIR/config/alacritty ~/.config/alacritty
-ln -s $SCRIPT_DIR/config/rofi ~/.config/rofi
-
-#build rofi with wayland support
+########################################################
+#           build rofi with wayland support
+########################################################
 rofi_dependencies=(
   "gcc"                           # C compiler supporting C99 (or use clang)
   "make"                          # build tool
@@ -58,7 +35,7 @@ rofi_dependencies=(
 )
 
 for package in "${rofi_dependencies[@]}"; do
-    sudo apt-get install -y "$package"
+    apt-get install -y "$package"
 done
 
 # clone and build rofi-wayland repo
@@ -68,5 +45,6 @@ cd rofi-wayland
 meson setup build/
 ninja -C build install
 
+# rm build files
 cd $SCRIPT_DIR
 rm -rf rofi-wayland
