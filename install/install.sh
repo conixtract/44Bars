@@ -25,7 +25,7 @@ done <./packages.ini
 ########################################################
 #                     symlinking
 ########################################################
-mkdir $PROJ_DIR/config -p
+mkdir $PROJ_DIR/.config -p
 ln -s $PROJ_DIR/config/sway ~/.config/sway
 ln -s $PROJ_DIR/config/alacritty ~/.config/alacritty
 ln -s $PROJ_DIR/config/rofi ~/.config/rofi
