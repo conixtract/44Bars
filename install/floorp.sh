@@ -1,13 +1,12 @@
-
 install() {
     curl -fsSL https://ppa.ablaze.one/KEY.gpg | sudo gpg --dearmor -o /usr/share/keyrings/Floorp.gpg
     sudo curl -sS --compressed -o /etc/apt/sources.list.d/Floorp.list 'https://ppa.ablaze.one/Floorp.list'
 
     sudo apt update
-    sudo apt install floorp
+    sudo apt install -y floorp
 }
 
-remove(){
+remove() {
     sudo apt --purge remove floorp
 }
 
@@ -23,4 +22,3 @@ if [ "$1" = "remove" ]; then
 fi
 
 echo "Usage: floorp.sh <install/remove>"
-

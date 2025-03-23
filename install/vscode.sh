@@ -1,6 +1,6 @@
 install() {
     # Import the Microsoft GPG key
-    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >packages.microsoft.gpg
     sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
 
     # Add the VS Code repository
@@ -8,10 +8,10 @@ install() {
 
     # Update package lists and install code
     sudo apt update
-    sudo apt install code
+    sudo apt install -y code
 }
 
-remove(){
+remove() {
     sudo apt --purge remove code
 }
 
@@ -27,4 +27,3 @@ if [ "$1" = "remove" ]; then
 fi
 
 echo "Usage: vscode.sh <install/remove>"
-
