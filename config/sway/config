@@ -21,7 +21,7 @@ set $menu rofi -show
 # exec waybar
 # exec --no-startup-id swaync
 # exec keepassxc
-# exec swaybg -m fill -i /home/forestgump/nixos/home/wallpaper/astronaut.png
+exec swaybg -m fill -i /home/forestgump/dev/44Bars/wallpapers/astronaut.png
 # exec /home/forestgump/nixos/home/scripts/battery
 
 ### Output configuration
