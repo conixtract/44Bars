@@ -1,8 +1,9 @@
 # installed in /usr/local/
 
 rofi_dependencies=(
-  "gcc"        # C compiler supporting C99 (or use clang)
-  "make"       # build tool
+  "gcc"  # C compiler supporting C99 (or use clang)
+  "make" # build tool
+  "cmake"
   "autoconf"   # for generating configuration scripts
   "automake"   # automake (version 1.11.3 or newer)
   "pkg-config" # for dependency configuration
