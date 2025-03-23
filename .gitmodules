@@ -1,0 +1,3 @@
+[submodule "home/wallpapers"]
+	path = home/wallpapers
+	url = git@github.com:conixtract/wallpapers.git
