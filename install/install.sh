@@ -31,3 +31,9 @@ mkdir $HOME_DIR/.config -p
 ln -s $PROJ_DIR/config/sway $HOME_DIR/.config/sway
 ln -s $PROJ_DIR/config/alacritty $HOME_DIR/.config/alacritty
 ln -s $PROJ_DIR/config/rofi $HOME_DIR/.config/rofi
+
+########################################################
+#                     configuring lightdm
+########################################################
+# disable default xsession in lightdm
+echo "NoDisplay=true" | sudo tee -a /usr/share/xsessions/lightdm-xsession.desktop
