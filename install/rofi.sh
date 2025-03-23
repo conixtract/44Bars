@@ -36,6 +36,11 @@ rofi_dependencies=(
 )
 
 install() {
+  # check if rofi already installed
+  if [ -x "$(command -v rofi)" ]; then
+    echo "rofi is already installed"
+    exit
+  fi
   ########################################################
   #           build rofi with wayland support
   ########################################################
