@@ -23,7 +23,6 @@ ln -s $SCRIPT_DIR/config/sway ~/.config/sway
 ln -s $SCRIPT_DIR/config/alacritty ~/.config/alacritty
 ln -s $SCRIPT_DIR/config/rofi ~/.config/rofi
 
-
 #build rofi with wayland support
 rofi_dependencies=(
   "gcc"                           # C compiler supporting C99 (or use clang)
@@ -61,3 +60,13 @@ rofi_dependencies=(
 for package in "${rofi_dependencies[@]}"; do
     sudo apt-get install -y "$package"
 done
+
+# clone and build rofi-wayland repo
+cd $SCRIPT_DIR
+gh repo clone in0ni/rofi-wayland
+cd rofi-wayland
+meson setup build/
+ninja -C build install
+
+cd $SCRIPT_DIR
+rm -rf rofi-wayland
