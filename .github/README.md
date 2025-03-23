@@ -22,4 +22,5 @@ This repository contains mutliple dotfiles for my different setups.
 ## Install
 
 - install git and use `gh auth login`
-- use `su -` and run `install/install.sh` script
+- give user sudo gourp `usermod -aG sudo $USERNAME`
+- run `install/install.sh` script

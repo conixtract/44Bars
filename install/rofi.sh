@@ -1,6 +1,5 @@
-########################################################
-#           build rofi with wayland support
-########################################################
+# installed in /usr/local/
+
 rofi_dependencies=(
   "gcc"                           # C compiler supporting C99 (or use clang)
   "make"                          # build tool
@@ -34,17 +33,40 @@ rofi_dependencies=(
   "libstartup-notification0-dev"
 )
 
-for package in "${rofi_dependencies[@]}"; do
-    apt-get install -y "$package"
-done
+install() {
+  ########################################################
+  #           build rofi with wayland support
+  ########################################################
 
-# clone and build rofi-wayland repo
-cd $SCRIPT_DIR
-gh repo clone in0ni/rofi-wayland
-cd rofi-wayland
-meson setup build/
-ninja -C build install
+  for package in "${rofi_dependencies[@]}"; do
+      sudo apt-get install -y "$package"
+  done
 
-# rm build files
-cd $SCRIPT_DIR
-rm -rf rofi-wayland
+  # clone and build rofi-wayland repo
+  cd $SCRIPT_DIR
+  gh repo clone in0ni/rofi-wayland
+  cd rofi-wayland
+  meson setup build/
+  ninja -C build install
+
+  # rm build files
+  cd $SCRIPT_DIR
+  rm -rf rofi-wayland
+}
+
+remove() {
+  sudo rm -rf /usr/local/bin/rofi
+}
+
+# Compare the strings using the '=' operator.
+if [ "$1" = "install" ]; then
+    install
+    exit
+fi
+
+if [ "$1" = "remove"]; then
+    remove
+    exit
+fi
+
+echo "Usage: rofi.sh <install/remove>"
