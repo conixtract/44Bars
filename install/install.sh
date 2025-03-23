@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJ_DIR=../$SCRIPT_DIR
+PROJ_DIR="../$SCRIPT_DIR"
 
 ########################################################
 #                installing packages
@@ -25,7 +25,7 @@ done <./packages.ini
 ########################################################
 #                     symlinking
 ########################################################
-mkdir $PROJ_DIR/.config -p
+mkdir ~/.config -p
 ln -s $PROJ_DIR/config/sway ~/.config/sway
 ln -s $PROJ_DIR/config/alacritty ~/.config/alacritty
 ln -s $PROJ_DIR/config/rofi ~/.config/rofi
