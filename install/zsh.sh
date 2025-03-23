@@ -1,6 +1,6 @@
 
 install() {
-    sudo apt install zsh
+    sudo apt install -y zsh
     # set as default
     chsh -s $(which zsh)
 }
