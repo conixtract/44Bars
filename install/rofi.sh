@@ -53,8 +53,8 @@ install() {
   # clone and build rofi-wayland repo
   git clone https://github.com/in0ni/rofi-wayland.git
   cd rofi-wayland
-  sudo meson setup build/
-  ninja -C build install
+  meson setup build/
+  sudo ninja -C build install
 
   # rm build files
   cd ../
