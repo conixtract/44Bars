@@ -21,6 +21,7 @@ This repository contains mutliple dotfiles for my different setups.
 
 ## Install
 
-- install git and use `gh auth login`
-- give user sudo gourp `usermod -aG sudo $USERNAME`
-- run `install/install.sh` script
+- install sudo and give user sudo group `usermod -aG sudo $USERNAME`
+- reboot
+- install git and use `git clone https://github.com/conixtract/44Bars.git`
+- run `bash install.sh` script in the `install` folder
