@@ -46,7 +46,7 @@ install() {
 
   # clone and build rofi-wayland repo
   cd $SCRIPT_DIR
-  gh repo clone in0ni/rofi-wayland
+  git clone https://github.com/in0ni/rofi-wayland.git
   cd rofi-wayland
   meson setup build/
   ninja -C build install
