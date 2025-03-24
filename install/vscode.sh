@@ -9,6 +9,12 @@ install() {
     # Update package lists and install code
     sudo apt update
     sudo apt install -y code
+
+    # Set the Ozone platform hint to Wayland
+    echo "ELECTRON_OZONE_PLATFORM_HINT=wayland" | sudo tee -a /etc/environment
+
+    # Clean up
+    rm packages.microsoft.gpg
 }
 
 remove() {
