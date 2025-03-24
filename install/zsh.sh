@@ -1,4 +1,10 @@
 install() {
+    # check if zsh already installed
+    if [ -x "$(command -v zsh)" ]; then
+        echo "zsh is already installed"
+        exit
+    fi
+
     sudo apt install -y zsh
     # set as default
     sudo chsh -s $(which zsh)

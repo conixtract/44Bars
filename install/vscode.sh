@@ -1,4 +1,10 @@
 install() {
+    # check if vscode already installed
+    if [ -x "$(command -v code)" ]; then
+        echo "VS Code is already installed."
+        exit
+    fi
+
     # Import the Microsoft GPG key
     wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >packages.microsoft.gpg
     sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
