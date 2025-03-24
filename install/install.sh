@@ -31,6 +31,7 @@ mkdir $HOME_DIR/.config -p
 ln -s $PROJ_DIR/config/sway $HOME_DIR/.config/sway
 ln -s $PROJ_DIR/config/alacritty $HOME_DIR/.config/alacritty
 ln -s $PROJ_DIR/config/rofi $HOME_DIR/.config/rofi
+ln -s $PROJ_DIR/config/zsh/.zshrc $HOME_DIR/.zshrc
 
 ########################################################
 #                     configuring lightdm
