@@ -21,4 +21,5 @@ if [ "$1" = "remove" ]; then
     exit
 fi
 
-echo "Usage: floorp.sh <install/remove>"
+filename=$(basename "$0")
+echo "Usage: $filename <install/remove>"

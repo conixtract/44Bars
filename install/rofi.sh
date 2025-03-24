@@ -76,4 +76,5 @@ if [ "$1" = "remove" ]; then
   exit
 fi
 
-echo "Usage: rofi.sh <install/remove>"
+filename=$(basename "$0")
+echo "Usage: $filename <install/remove>"

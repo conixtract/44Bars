@@ -24,4 +24,5 @@ if [ "$1" = "remove" ]; then
     exit
 fi
 
-echo "Usage: zsh.sh <install/remove>"
+filename=$(basename "$0")
+echo "Usage: $filename <install/remove>"
