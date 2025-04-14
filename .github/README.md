@@ -24,15 +24,16 @@ This repository contains mutliple dotfiles for my different setups.
 - install sudo and give user sudo group `usermod -aG sudo $USERNAME`
 - reboot
 - install git and use `git clone https://github.com/conixtract/44Bars.git`
-- run `bash install.sh` script in the `install` folder
+- run `bash install.sh` script in the `install` folder (package.ini contains the packages that get installed comment out with #)
 
 ## To-Do
 
-- [ ] set git aliases
-- [ ] install lfcd
+- [x] set git aliases
+- [X] install lfcd
 - [ ] make reboot & poweroff available in rofi
-- [ ] set shell aliases
+- [x] set shell aliases
 - [ ] setup koch vpn (strongswan)
 - [ ] check wl-copy & screenshot tool
 - [ ] maybe highlevel script to automate docker project setup
 - [ ] automate vscode extensions + settings
+- [ ] notifications using swaync
