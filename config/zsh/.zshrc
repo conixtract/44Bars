@@ -102,3 +102,20 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+##############################
+####        Aliase        ####
+##############################
+
+alias la="ls -a -l -h"
+alias ls="ls --color=auto"
+alias open="xdg-open"
+alias vpn="sudo openconnect -v vpn.rwth-aachen.de --useragent=AnyConnect -b --authgroup=\"RWTH-VPN (Full Tunnel)\" --user=\"fx245575\""
+alias connect-koch-vpn="sudo swanctl --load-all --file ~/.config/strongswan/swanctl.conf && sudo swanctl --initiate --child net"
+alias disconnect-koch-vpn="sudo swanctl --terminate --child net && sudo systemctl restart strongswan"
+
+lfcd() {
+    # `command` is needed in case `lfcd` is aliased to `lf`
+    # only works on debian 13+
+    cd "$(command lf -print-last-dir "$@")"
+}
