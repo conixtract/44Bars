@@ -27,15 +27,34 @@ done <./packages.ini
 ########################################################
 #                     symlinking
 ########################################################
-ln -s $PROJ_DIR/config/zsh/.zshrc $HOME_DIR/.zshrc
+link_config() {
+    local src=$(realpath "$1")
+    local dest="$2"
+
+    if [ "$(realpath "$src" 2>/dev/null)" = "$(realpath "$dest" 2>/dev/null)" ]; then
+        echo "✅ Skipping identical link: $dest"
+        return
+    fi
+
+    if [ -L "$dest" ] || [ -e "$dest" ]; then
+        echo "🗑️  Removing existing: $dest"
+        rm -rf "$dest"
+    fi
+
+    echo "🔗 Linking: $dest → $src"
+    ln -s "$src" "$dest"
+}
+
+link_config $PROJ_DIR/config/zsh/.zshrc $HOME_DIR/.zshrc
+link_config $PROJ_DIR/config/git/.gitconfig $HOME_DIR/.gitconfig
 
 mkdir $HOME_DIR/.config -p
-ln -s $PROJ_DIR/config/sway $HOME_DIR/.config/sway
-ln -s $PROJ_DIR/config/alacritty $HOME_DIR/.config/alacritty
-ln -s $PROJ_DIR/config/rofi $HOME_DIR/.config/rofi
+link_config $PROJ_DIR/config/sway $HOME_DIR/.config/sway
+link_config $PROJ_DIR/config/alacritty $HOME_DIR/.config/alacritty
+link_config $PROJ_DIR/config/rofi $HOME_DIR/.config/rofi
 
 mkdir $HOME_DIR/.swaylock -p
-ln -s $PROJ_DIR/config/swaylock/config $HOME_DIR/.swaylock/config
+link_config $PROJ_DIR/config/swaylock/config $HOME_DIR/.swaylock/config
 
 ########################################################
 #                     configuring lightdm
