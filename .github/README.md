@@ -37,3 +37,6 @@ This repository contains mutliple dotfiles for my different setups.
 - [ ] maybe highlevel script to automate docker project setup
 - [ ] automate vscode extensions + settings
 - [ ] notifications using swaync
+- [ ] setup eduroam 
+- [ ] setup lock screen & sleep
+- [ ] fix lightdm login
