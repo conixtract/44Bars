@@ -45,6 +45,8 @@ install() {
   cd ..
   sudo apt install -y ./rtw8852be-dkms_*.deb
 
+  sudo modprobe -v 8852be 
+
   echo "[✓] rtw8852be installed successfully."
 
   # Cleanup
