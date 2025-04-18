@@ -28,10 +28,7 @@ This repository contains mutliple dotfiles for my different setups.
 
 ## To-Do
 
-- [x] set git aliases
-- [X] install lfcd
 - [ ] make reboot & poweroff available in rofi
-- [x] set shell aliases
 - [ ] setup koch vpn (strongswan)
 - [ ] check wl-copy & screenshot tool
 - [ ] maybe highlevel script to automate docker project setup
@@ -39,4 +36,3 @@ This repository contains mutliple dotfiles for my different setups.
 - [ ] notifications using swaync
 - [ ] setup eduroam 
 - [ ] setup lock screen & sleep
-- [ ] fix lightdm login

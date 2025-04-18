@@ -56,6 +56,7 @@ link_config $PROJ_DIR/config/rofi $HOME_DIR/.config/rofi
 
 mkdir $HOME_DIR/.swaylock -p
 link_config $PROJ_DIR/config/swaylock/config $HOME_DIR/.swaylock/config
+# slink_config $PROJ_DIR/config/hyprlock/hyprlock.conf $HOME_DIR/.config/hypr/hyprlock.conf
 
 ########################################################
 #                     configuring lightdm

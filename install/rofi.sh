@@ -36,6 +36,8 @@ rofi_dependencies=(
   "libstartup-notification0-dev"
 )
 
+tmp_dir=/tmp/rofi-wayland
+
 install() {
   # check if rofi already installed
   if [ -x "$(command -v rofi)" ]; then
@@ -51,14 +53,14 @@ install() {
   done
 
   # clone and build rofi-wayland repo
-  git clone https://github.com/in0ni/rofi-wayland.git
-  cd rofi-wayland
+  git clone https://github.com/in0ni/rofi-wayland.git $tmp_dir
+  cd $tmp_dir
   meson setup build/
   sudo ninja -C build install
 
   # rm build files
   cd ../
-  rm -rf rofi-wayland
+  rm -rf $tmp_dir
 }
 
 remove() {
