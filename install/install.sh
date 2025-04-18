@@ -47,6 +47,7 @@ link_config() {
 
 link_config $PROJ_DIR/config/zsh/.zshrc $HOME_DIR/.zshrc
 link_config $PROJ_DIR/config/git/.gitconfig $HOME_DIR/.gitconfig
+link_config $PROJ_DIR/config/bash/.bash_profile $HOME_DIR/.bash_profile
 
 mkdir $HOME_DIR/.config -p
 link_config $PROJ_DIR/config/sway $HOME_DIR/.config/sway
