@@ -3,8 +3,7 @@
 let
   # themes = pkgs.callPackage ../../derivs/sddm-themes.nix { }; # for sddm
   # dancing-script = pkgs.callPackage ../../derivs/dancing-script.nix { }; # for sddm
-in
-{
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -25,6 +24,7 @@ in
     powerOnBoot = false;
     settings.General.Experimental = true;
   };
+  services.blueman.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -50,7 +50,6 @@ in
     HandlePowerKey=ignore
   '';
 
-
   # audio
   services.pipewire = {
     enable = true;
@@ -60,8 +59,8 @@ in
 
   # change location of the configuration.nix file
   nix.nixPath = [
-    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos" #dont change this
-    "/nix/var/nix/profiles/per-user/root/channels" #neither this
+    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos" # dont change this
+    "/nix/var/nix/profiles/per-user/root/channels" # neither this
     "nixos-config=${config.users.users.forestgump.home}/44Bars/hosts/44Bars/configuration.nix"
   ];
 
@@ -69,13 +68,15 @@ in
   services.libinput.touchpad.naturalScrolling = true;
 
   # virtualization
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
+  # virtualisation.libvirtd.enable = true;
+  # virtualisation.libvirtd.qemu.ovmf.enable = true;
+  # programs.virt-manager.enable = true;
 
   programs = {
     hyprland.enable = false;
     sway.enable = true;
   };
+  programs.nix-ld.enable = true;
 
   # only for koch vpn details, disable afterwards
 
@@ -138,6 +139,8 @@ in
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji
+    fira-code
+    monaspace
   ];
 
   programs.seahorse.enable = true;
@@ -148,10 +151,12 @@ in
     brightnessctl
     libsForQt5.qt5.qtgraphicaleffects
     libsecret
-    qemu
-    virt-manager
-    libvirt
-    virt-viewer
+    bluez
+    blueberry
+    # qemu
+    # virt-manager
+    # libvirt
+    # virt-viewer
     # dancing-script # for sddm
     # themes.sddm-sugar-dark # for sddm
   ];

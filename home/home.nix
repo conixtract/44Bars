@@ -47,6 +47,7 @@ in
     enable = true;
     settings = { };
   };
+  services.blueman-applet.enable = true;
 
   programs = {
     direnv = {
@@ -54,13 +55,6 @@ in
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
-    # chromium = {
-    #   enable = true;
-    #   commandLineArgs = [
-    #     "--ozone-platform-hint=auto"
-    #     "--enable-wayland-clipboard"
-    #   ];
-    # };
     firefox = {
       enable = true;
     };
@@ -104,7 +98,7 @@ in
       connect-koch-vpn = "sudo swanctl --load-all --file ~/.config/strongswan/swanctl.conf && sudo swanctl --initiate --child net";
       disconnect-koch-vpn = "sudo swanctl --terminate --child net && sudo systemctl restart strongswan";
       nix = "code ~/nixos";
-      hiwi = "cd ~/dev/mesh-kernel && nix-shell shell.nix";
+      hiwi = "cd ~/dev/fracturing && nix-shell shell.nix";
     };
 
     oh-my-zsh = {
@@ -167,6 +161,10 @@ in
   #   };
   # };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "beekeeper-studio-5.1.5"
+  ];
+
   home = {
     file = {
       ".config/hypr/hyprlock.conf".source = ./config/hyprland/hyprlock.conf;
@@ -178,18 +176,14 @@ in
       wl-clipboard
       hyprshot
       nixpkgs-fmt
-      discord
-      mattermost-desktop
       beekeeper-studio
       gitkraken
       openconnect
       obsidian
       feh
       rsync
-      qt5.qtwayland
       qt6.qtwayland
       libnotify
-      blueman
       whatsapp-for-linux
       (pkgs.mailspring.overrideAttrs (oldAttrs: rec {
         postInstall = ''
@@ -205,11 +199,16 @@ in
       strongswan
       unzip
       texlive.combined.scheme-full
+      tex-fmt # latex formatter
+      nixfmt
       swaybg
       i3status
       acpi
       alsa-utils
       htop
+      kdePackages.okular
+      tree
+      include-what-you-use
     ];
     sessionVariables = {
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
