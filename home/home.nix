@@ -2,8 +2,7 @@
 let
   colors = import ../colors/rose.nix { };
   HOME = builtins.getEnv "HOME";
-in
-{
+in {
   # some general info  
   home.username = "forestgump";
   home.homeDirectory = "/home/forestgump";
@@ -23,12 +22,8 @@ in
 
   # dropbox setup from https://nixos.wiki/wiki/Dropbox
   systemd.user.services.dropbox = {
-    Unit = {
-      Description = "Dropbox service";
-    };
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
+    Unit = { Description = "Dropbox service"; };
+    Install = { WantedBy = [ "default.target" ]; };
     Service = {
       ExecStart = "${pkgs.dropbox}/bin/dropbox";
       Restart = "on-failure";
@@ -39,7 +34,8 @@ in
 
   services.hyprpaper = {
     enable = true;
-    settings = { }; #! set to empty set such that the config file is not generated and i can place my own
+    settings =
+      { }; # ! set to empty set such that the config file is not generated and i can place my own
   };
   services.clipman.enable = true;
 
@@ -55,27 +51,21 @@ in
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
-    firefox = {
-      enable = true;
-    };
+    firefox = { enable = true; };
     waybar = {
       enable = true;
       systemd.enable = false;
       settings = { };
       style = builtins.readFile ./config/waybar/style.css;
     };
-    hyprlock = {
-      enable = true;
-    };
+    hyprlock = { enable = true; };
     alacritty = {
       enable = true;
       settings = { };
     };
   };
 
-  programs.java = {
-    enable = true;
-  };
+  programs.java = { enable = true; };
 
   programs.zsh = {
     enable = true;
@@ -93,18 +83,20 @@ in
       upgrade = "nix-channel --update && sudo nixos-rebuild switch --upgrade";
       take-out-trash = "sudo nix-collect-garbage --delete-older-than 5d";
       open = "xdg-open";
-      vpn = "sudo openconnect -v vpn.rwth-aachen.de --useragent=AnyConnect -b --authgroup=\"RWTH-VPN (Full Tunnel)\" --user=\"fx245575\"";
+      vpn = ''
+        sudo openconnect -v vpn.rwth-aachen.de --useragent=AnyConnect -b --authgroup="RWTH-VPN (Full Tunnel)" --user="fx245575"'';
       koki = "cd ~/dev/KoKi-Website/ && nix-shell shell.nix";
-      connect-koch-vpn = "sudo swanctl --load-all --file ~/.config/strongswan/swanctl.conf && sudo swanctl --initiate --child net";
-      disconnect-koch-vpn = "sudo swanctl --terminate --child net && sudo systemctl restart strongswan";
-      nix = "code ~/nixos";
-      hiwi = "cd ~/dev/fracturing && nix-shell shell.nix";
+      connect-koch-vpn =
+        "sudo swanctl --load-all --file ~/.config/strongswan/swanctl.conf && sudo swanctl --initiate --child net";
+      disconnect-koch-vpn =
+        "sudo swanctl --terminate --child net && sudo systemctl restart strongswan";
+      nix = "code ~/44Bars";
+      hiwi = "cd ~/dev/bachelor-thesis && nix-shell shell.nix";
     };
 
     oh-my-zsh = {
       enable = true;
-      plugins = [
-      ];
+      plugins = [ ];
     };
   };
 
@@ -118,40 +110,33 @@ in
         lg2 = "lg2-specific --all";
         lg3 = "lg3-specific --all";
 
-        lg1-specific = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'";
+        lg1-specific =
+          "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'";
 
-        lg2-specific = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white) - %an%C (reset)'";
+        lg2-specific =
+          "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white) - %an%C (reset)'";
 
-        lg3-specific = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white) - %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'";
+        lg3-specific =
+          "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white) - %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'";
       };
     };
   };
 
-
-
   # override the default config files
-  xdg.configFile."hypr/hyprpaper.conf" = lib.mkForce {
-    source = ./config/hyprland/hyprpaper.conf;
-  };
-  xdg.configFile."hypr/hypridle.conf" = lib.mkForce {
-    source = ./config/hyprland/hypridle.conf;
-  };
-  xdg.configFile."alacritty/alacritty.toml" = lib.mkForce {
-    source = ./config/alacritty/alacritty.toml;
-  };
+  xdg.configFile."hypr/hyprpaper.conf" =
+    lib.mkForce { source = ./config/hyprland/hyprpaper.conf; };
+  xdg.configFile."hypr/hypridle.conf" =
+    lib.mkForce { source = ./config/hyprland/hypridle.conf; };
+  xdg.configFile."alacritty/alacritty.toml" =
+    lib.mkForce { source = ./config/alacritty/alacritty.toml; };
 
-  xdg.configFile."waybar/config" = lib.mkForce {
-    source = ./config/waybar/waybar.conf;
-  };
+  xdg.configFile."waybar/config" =
+    lib.mkForce { source = ./config/waybar/waybar.conf; };
 
-  xdg.configFile."sway/config" = lib.mkForce {
-    source = ./config/sway/sway.conf;
-  };
+  xdg.configFile."sway/config" =
+    lib.mkForce { source = ./config/sway/sway.conf; };
 
-  xdg.mimeApps.defaultApplications = {
-    "inode/directory" = [ "lf.desktop" ];
-  };
-
+  xdg.mimeApps.defaultApplications = { "inode/directory" = [ "lf.desktop" ]; };
 
   # virtualiztion
   # dconf.settings = {
@@ -161,9 +146,7 @@ in
   #   };
   # };
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "beekeeper-studio-5.1.5"
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ "beekeeper-studio-5.1.5" ];
 
   home = {
     file = {
@@ -217,11 +200,7 @@ in
       TERMINAL = "alacritty";
       garden = "$HOME/Dropbox/digital-garden/";
     };
-    sessionPath = [
-      "$HOME/.local/bin"
-      "$HOME/44Bars/home/scripts"
-    ];
+    sessionPath = [ "$HOME/.local/bin" "$HOME/44Bars/home/scripts" ];
   };
 }
-
 
