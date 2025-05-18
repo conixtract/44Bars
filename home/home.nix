@@ -1,10 +1,16 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   colors = import ../colors/rose.nix { };
   HOME = builtins.getEnv "HOME";
   DOTFILES = "/home/forestgump/44Bars/home/config";
-in {
-  # some general info  
+in
+{
+  # some general info
   home.username = "forestgump";
   home.homeDirectory = "/home/forestgump";
   home.stateVersion = "24.05";
@@ -14,17 +20,31 @@ in {
 
   imports = [
     (import ./config/hyprland/default.nix)
-    (import ./config/rofi/default.nix { inherit config pkgs colors lib; })
+    (import ./config/rofi/default.nix {
+      inherit
+        config
+        pkgs
+        colors
+        lib
+        ;
+    })
     (import ./config/vscode/default.nix)
     (import ./config/polybar/default.nix)
   ];
 
-  wayland.windowManager.sway.enable = true;
+  wayland.windowManager.sway = {
+    enable = true;
+    package = pkgs.swayfx;
+  };
 
   # dropbox setup from https://nixos.wiki/wiki/Dropbox
   systemd.user.services.dropbox = {
-    Unit = { Description = "Dropbox service"; };
-    Install = { WantedBy = [ "default.target" ]; };
+    Unit = {
+      Description = "Dropbox service";
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
     Service = {
       ExecStart = "${pkgs.dropbox}/bin/dropbox";
       Restart = "on-failure";
@@ -35,8 +55,7 @@ in {
 
   services.hyprpaper = {
     enable = true;
-    settings =
-      { }; # ! set to empty set such that the config file is not generated and i can place my own
+    settings = { }; # ! set to empty set such that the config file is not generated and i can place my own
   };
   services.clipman.enable = true;
 
@@ -58,23 +77,29 @@ in {
     #   settings = { };
     #   style = builtins.readFile ./config/waybar/style.css;
     # };
-    hyprlock = { enable = true; };
+    hyprlock = {
+      enable = true;
+    };
     alacritty = {
       enable = true;
       settings = { };
     };
   };
 
-  programs.java = { enable = true; };
+  programs.java = {
+    enable = true;
+  };
 
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
     enableCompletion = true;
-    initExtra = ''
-      eval "$(direnv hook zsh)"
-      LFCD=${HOME}/44Bars/home/scripts/lfcd.sh
-    '' + builtins.readFile ./scripts/lfcd.sh;
+    initExtra =
+      ''
+        eval "$(direnv hook zsh)"
+        LFCD=${HOME}/44Bars/home/scripts/lfcd.sh
+      ''
+      + builtins.readFile ./scripts/lfcd.sh;
 
     shellAliases = {
       la = "ls -a -l -h";
@@ -83,13 +108,10 @@ in {
       upgrade = "nix-channel --update && sudo nixos-rebuild switch --upgrade";
       take-out-trash = "sudo nix-collect-garbage --delete-older-than 5d";
       open = "xdg-open";
-      vpn = ''
-        sudo openconnect -v vpn.rwth-aachen.de --useragent=AnyConnect -b --authgroup="RWTH-VPN (Full Tunnel)" --user="fx245575"'';
+      vpn = ''sudo openconnect -v vpn.rwth-aachen.de --useragent=AnyConnect -b --authgroup="RWTH-VPN (Full Tunnel)" --user="fx245575"'';
       koki = "cd ~/dev/KoKi-Website/ && nix-shell shell.nix";
-      connect-koch-vpn =
-        "sudo swanctl --load-all --file ~/.config/strongswan/swanctl.conf && sudo swanctl --initiate --child net";
-      disconnect-koch-vpn =
-        "sudo swanctl --terminate --child net && sudo systemctl restart strongswan";
+      connect-koch-vpn = "sudo swanctl --load-all --file ~/.config/strongswan/swanctl.conf && sudo swanctl --initiate --child net";
+      disconnect-koch-vpn = "sudo swanctl --terminate --child net && sudo systemctl restart strongswan";
       nix = "code ~/44Bars";
       hiwi = "cd ~/dev/fracturing && nix-shell shell.nix";
     };
@@ -110,32 +132,34 @@ in {
         lg2 = "lg2-specific --all";
         lg3 = "lg3-specific --all";
 
-        lg1-specific =
-          "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'";
+        lg1-specific = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'";
 
-        lg2-specific =
-          "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white) - %an%C (reset)'";
+        lg2-specific = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white) - %an%C (reset)'";
 
-        lg3-specific =
-          "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white) - %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'";
+        lg3-specific = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white) - %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'";
       };
     };
   };
 
   # override the default config files
-  xdg.configFile."hypr/hyprpaper.conf".source = lib.mkForce
-    (config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/hyprland/hyprpaper.conf");
-  xdg.configFile."hypr/hypridle.conf".source = lib.mkForce
-    (config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/hyprland/hypridle.conf");
-  xdg.configFile."alacritty/alacritty.toml".source = lib.mkForce
-    (config.lib.file.mkOutOfStoreSymlink
-      "${DOTFILES}/alacritty/alacritty.toml");
-  xdg.configFile."sway/config".source = lib.mkForce
-    (config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/sway/sway.conf");
+  xdg.configFile."hypr/hyprpaper.conf".source = lib.mkForce (
+    config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/hyprland/hyprpaper.conf"
+  );
+  xdg.configFile."hypr/hypridle.conf".source = lib.mkForce (
+    config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/hyprland/hypridle.conf"
+  );
+  xdg.configFile."alacritty/alacritty.toml".source = lib.mkForce (
+    config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/alacritty/alacritty.toml"
+  );
+  xdg.configFile."sway/config".source = lib.mkForce (
+    config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/sway/sway.conf"
+  );
   # xdg.configFile."waybar/config".source = lib.mkForce
   #   (config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/waybar/waybar.conf");
 
-  xdg.mimeApps.defaultApplications = { "inode/directory" = [ "lf.desktop" ]; };
+  xdg.mimeApps.defaultApplications = {
+    "inode/directory" = [ "lf.desktop" ];
+  };
 
   # virtualiztion
   # dconf.settings = {
@@ -151,9 +175,9 @@ in {
     file = {
       ".config/hypr/hyprlock.conf".source = ./config/hyprland/hyprlock.conf;
 
-      ".config/Code/User/settings.json".source = lib.mkForce
-        (config.lib.file.mkOutOfStoreSymlink
-          "${DOTFILES}/vscode/settings.json");
+      ".config/Code/User/settings.json".source = lib.mkForce (
+        config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/vscode/settings.json"
+      );
 
     };
 
@@ -176,7 +200,7 @@ in {
       unzip
       texlive.combined.scheme-full
       tex-fmt # latex formatter
-      nixfmt
+      nixfmt-rfc-style
       swaybg
       i3status
       acpi
@@ -195,7 +219,9 @@ in {
       TERMINAL = "alacritty";
       garden = "${HOME}/Dropbox/digital-garden/";
     };
-    sessionPath = [ "${HOME}/.local/bin" "${HOME}/44Bars/home/scripts" ];
+    sessionPath = [
+      "${HOME}/.local/bin"
+      "${HOME}/44Bars/home/scripts"
+    ];
   };
 }
-
