@@ -19,6 +19,7 @@
     // ----------------------------------------------------------------
     // editor & terminal
     "editor.fontFamily": "Fira Code",
+    "editor.fontSize": 14,
     "editor.fontLigatures": true,
     // "editor.fontFamily": "Monaspace Argon Var",
     "terminal.integrated.fontFamily": "Fira Code",
