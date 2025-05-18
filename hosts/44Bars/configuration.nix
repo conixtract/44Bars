@@ -3,14 +3,15 @@
 let
   # themes = pkgs.callPackage ../../derivs/sddm-themes.nix { }; # for sddm
   # dancing-script = pkgs.callPackage ../../derivs/dancing-script.nix { }; # for sddm
-in {
+in
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     <home-manager/nixos>
   ];
 
-  # Bootloader.  
+  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -123,7 +124,11 @@ in {
   users.users.forestgump = {
     isNormalUser = true;
     description = "44Bars";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+    ];
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
