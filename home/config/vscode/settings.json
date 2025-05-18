@@ -1,7 +1,12 @@
 {
     "editor.defaultFormatter": "ms-vscode.cpptools",
-    "workbench.preferredDarkColorTheme": "Dracula",
     "C_Cpp.autocompleteAddParentheses": true,
+    "workbench.colorTheme": "Dracula Theme",
+    //font
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    // "editor.fontFamily": "Monaspace Argon Var",
+    "terminal.integrated.fontFamily": "Fira Code",
     "C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "sameLine",
     "C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "sameLine",
     "C_Cpp.vcFormat.newLine.beforeOpenBrace.lambda": "sameLine",
@@ -10,7 +15,7 @@
     "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, TabWidth: 4, ColumnLimit: 0}",
     "editor.formatOnPaste": true,
     "[cpp]": {
-        "editor.defaultFormatter": "ms-vscode.cpptools"
+        "editor.defaultFormatter": "xaver.clang-format"
     },
     "workbench.settings.applyToAllProfiles": [
         "C_Cpp.clang_format_style",
@@ -33,7 +38,6 @@
         "cpp"
     ],
     "remote.SSH.configFile": "~/.ssh/config",
-    "window.menuBarVisibility": "toggle",
     "latex-workshop.latex.recipes": [
         {
             "name": "latexmk",
@@ -111,7 +115,6 @@
     "git.statusLimit": 0,
     "editor.minimap.enabled": false,
     "terminal.integrated.tabs.location": "left",
-    "workbench.colorTheme": "Dracula Theme",
     "[latex]": {
         "editor.defaultFormatter": "James-Yu.latex-workshop"
     },
@@ -165,9 +168,9 @@
         "workbench.action.tasks.runTask"
     ],
     "grammarly.config.suggestionCategories.conjugationAtStartOfSentence": "on",
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 0,
     "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+        "editor.defaultFormatter": "ms-vsliveshare.vsliveshare"
     },
     "git.confirmSync": false,
     "[handlebars]": {
@@ -188,6 +191,11 @@
     "cSpell.enabled": false,
     "makefile.configureOnOpen": true,
     "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+        "zsh": {
+            "path": "zsh"
+        },
+    },
     "files.insertFinalNewline": true,
     "notebook.insertFinalNewline": true,
     "diffEditor.ignoreTrimWhitespace": false,
@@ -205,17 +213,56 @@
         "[x]",
         "?",
         "!",
-        "todo"
+        "todo",
+        "lastedit",
+        "LASTEDIT",
+        "last edit"
     ],
     "todo-tree.general.tagGroups": {
         "TODO": [
             "TODO",
             "todo"
-        ]
+        ],
+        "LASTEDIT": [
+            "lastedit",
+            "LASTEDIT",
+            "last edit"
+        ],
     },
     "workbench.activityBar.location": "top",
-    "window.commandCenter": false,
     "workbench.layoutControl.enabled": false,
-    "workbench.startupEditor": "none"
-    
+    "workbench.startupEditor": "none",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "editor.formatOnSave": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "cpp": true,
+        "latex": false
+    },
+    "ltex.java.path": "/home/forestgump/.nix-profile/",
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gpt-4o",
+    "[ignore]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "iwyu.compile_commands": "${workspaceFolder}/build/${buildType}/compile_commands.json",
+    "chat.commandCenter.enabled": false,
+    "window.menuBarVisibility": "hidden",
+    "window.commandCenter": false,
+    "window.titleBarStyle": "native",
+    "window.customTitleBarVisibility": "never",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "errorLens.enabledDiagnosticLevels": [
+        "error",
+        "warning"
+    ],
+    "errorLens.enabled": false,
+    "[properties]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
 }

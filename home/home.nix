@@ -2,6 +2,7 @@
 let
   colors = import ../colors/rose.nix { };
   HOME = builtins.getEnv "HOME";
+  DOTFILES = "/home/forestgump/44Bars/home/config";
 in {
   # some general info  
   home.username = "forestgump";
@@ -51,13 +52,12 @@ in {
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
-    firefox = { enable = true; };
-    waybar = {
-      enable = true;
-      systemd.enable = false;
-      settings = { };
-      style = builtins.readFile ./config/waybar/style.css;
-    };
+    # waybar = {
+    #   enable = true;
+    #   systemd.enable = false;
+    #   settings = { };
+    #   style = builtins.readFile ./config/waybar/style.css;
+    # };
     hyprlock = { enable = true; };
     alacritty = {
       enable = true;
@@ -91,7 +91,7 @@ in {
       disconnect-koch-vpn =
         "sudo swanctl --terminate --child net && sudo systemctl restart strongswan";
       nix = "code ~/44Bars";
-      hiwi = "cd ~/dev/bachelor-thesis && nix-shell shell.nix";
+      hiwi = "cd ~/dev/fracturing && nix-shell shell.nix";
     };
 
     oh-my-zsh = {
@@ -123,18 +123,17 @@ in {
   };
 
   # override the default config files
-  xdg.configFile."hypr/hyprpaper.conf" =
-    lib.mkForce { source = ./config/hyprland/hyprpaper.conf; };
-  xdg.configFile."hypr/hypridle.conf" =
-    lib.mkForce { source = ./config/hyprland/hypridle.conf; };
-  xdg.configFile."alacritty/alacritty.toml" =
-    lib.mkForce { source = ./config/alacritty/alacritty.toml; };
-
-  xdg.configFile."waybar/config" =
-    lib.mkForce { source = ./config/waybar/waybar.conf; };
-
-  xdg.configFile."sway/config" =
-    lib.mkForce { source = ./config/sway/sway.conf; };
+  xdg.configFile."hypr/hyprpaper.conf".source = lib.mkForce
+    (config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/hyprland/hyprpaper.conf");
+  xdg.configFile."hypr/hypridle.conf".source = lib.mkForce
+    (config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/hyprland/hypridle.conf");
+  xdg.configFile."alacritty/alacritty.toml".source = lib.mkForce
+    (config.lib.file.mkOutOfStoreSymlink
+      "${DOTFILES}/alacritty/alacritty.toml");
+  xdg.configFile."sway/config".source = lib.mkForce
+    (config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/sway/sway.conf");
+  # xdg.configFile."waybar/config".source = lib.mkForce
+  #   (config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/waybar/waybar.conf");
 
   xdg.mimeApps.defaultApplications = { "inode/directory" = [ "lf.desktop" ]; };
 
@@ -151,34 +150,28 @@ in {
   home = {
     file = {
       ".config/hypr/hyprlock.conf".source = ./config/hyprland/hyprlock.conf;
-      # ".config/i3/config".source = ../pk/config/i3/config;
+
+      ".config/Code/User/settings.json".source = lib.mkForce
+        (config.lib.file.mkOutOfStoreSymlink
+          "${DOTFILES}/vscode/settings.json");
+
     };
+
     packages = with pkgs; [
-      remmina
       floorp
       wl-clipboard
       hyprshot
       nixpkgs-fmt
       beekeeper-studio
-      gitkraken
       openconnect
       obsidian
       feh
       rsync
       qt6.qtwayland
       libnotify
-      whatsapp-for-linux
-      (pkgs.mailspring.overrideAttrs (oldAttrs: rec {
-        postInstall = ''
-          wrapProgram $out/bin/mailspring --add-flags "--password-store=gnome-libsecret"
-        '';
-      }))
-      spotify
       lf
       libqalculate
-      element-desktop
       killall
-      volantes-cursors
       strongswan
       unzip
       texlive.combined.scheme-full
@@ -193,14 +186,16 @@ in {
       tree
       include-what-you-use
     ];
+
     sessionVariables = {
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
       EDITOR = "code";
       BROWSER = "floorp";
+      FILE = "lf";
       TERMINAL = "alacritty";
-      garden = "$HOME/Dropbox/digital-garden/";
+      garden = "${HOME}/Dropbox/digital-garden/";
     };
-    sessionPath = [ "$HOME/.local/bin" "$HOME/44Bars/home/scripts" ];
+    sessionPath = [ "${HOME}/.local/bin" "${HOME}/44Bars/home/scripts" ];
   };
 }
 
