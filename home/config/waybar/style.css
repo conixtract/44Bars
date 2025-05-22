@@ -1,6 +1,7 @@
 * {
-	font-size: 12px;
+	font-size: 14px;
 	font-family: monospace;
+	padding-top: 2px;
 }
 
 window#waybar {
