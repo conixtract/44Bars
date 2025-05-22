@@ -22,8 +22,6 @@ home/
         config/
         home.nix
         ...
-    shared/
-        ...
 hosts/
     44Bars/
         hardware-configuration.nix
@@ -38,17 +36,16 @@ This is the general structure of my dotfiles.
 - `old44Bars` contains the configurations for my old (dead) surfcae
 
 2. home/
-- contains home-manager(user specific) configurations
-- `shared` contains wallpapers, color schemes, scripts etc.
+- contains home-manager(user specific) configurations and resources
 
 ## Screenshots
 | <b>Launch Menu</b>                                                                       |
 | ---------------------------------------------------------------------------------------- |
-| <a href="#--------"><img src="screenshots/rofi_menu.png" alt="bottom panel preview"></a> |
+| <a href="#--------"><img src="screenshots/rofi-menu.png" alt="bottom panel preview"></a> |
 
-|                                     <b>Lock Screen</b>                                     |                                     <b>Login Screen</b>                                     |
-| :----------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: |
-| <a href="#--------"><img src="screenshots/lock_screen.png" alt="bottom panel preview"></a> | <a href="#--------"><img src="screenshots/login_screen.png" alt="bottom panel preview"></a> |
+|                                         <b></b>                                          |                                            <b></b>                                             |
+| :--------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------: |
+| <a href="#--------"><img src="screenshots/home-html.png" alt="bottom panel preview"></a> | <a href="#--------"><img src="screenshots/example-working.png" alt="bottom panel preview"></a> |
 
 ## Installation
 Don't
