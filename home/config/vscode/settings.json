@@ -14,8 +14,9 @@
     "workbench.layoutControl.enabled": false,
     "workbench.startupEditor": "none",
     "problems.showCurrentInStatus": false,
-    "workbench.statusBar.visible": false,
-    "workbench.editor.tabSizing": "shrink",
+    "workbench.editor.tabSizing": "fixed",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.horizontal": "hidden",
     // ----------------------------------------------------------------
     // editor & terminal
     "editor.fontFamily": "Fira Code",
@@ -52,8 +53,9 @@
         "markdown": false,
         "scminput": false,
         "cpp": true,
-        "latex": false
+        "latex": true
     },
+    "inlineChat.enableV2": true,
     // ----------------------------------------------------------------
     // ####################### EXTENSIONS SETTINGS ####################
     // cpp
@@ -123,8 +125,54 @@
     },
     // ----------------------------------------------------------------
     // latex
-    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.autoBuild.run": "onSave",
     "ltex.java.path": "/home/forestgump/.nix-profile/",
+    // define external tools
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-interaction=nonstopmode",
+                "-synctex=1",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ],
+    // define recipes
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdflatex → biber → pdflatex²",
+            "tools": [
+                "pdflatex",
+                "biber",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "pdflatex → bibtex → pdflatex²",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "simple pdflatex",
+            "tools": [
+                "pdflatex"
+            ]
+        }
+    ],
     // ----------------------------------------------------------------
     // error lens
     "errorLens.enabledDiagnosticLevels": [
@@ -160,4 +208,7 @@
             "last edit"
         ],
     },
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.editor.showTabs": "none",
+    "workbench.statusBar.visible": false,
 }
