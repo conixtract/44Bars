@@ -42,13 +42,13 @@ This is the general structure of my dotfiles.
 - `shared` contains wallpapers, color schemes, scripts etc.
 
 ## Screenshots
-| <b>Launch Menu</b>                                                                              |
-| ------------------------------------------------------------------------------------------------------------------ |
-| <a href="#--------"><img src="screenshots/rofi_menu.png" alt="bottom panel preview"></a>                    |
+| <b>Launch Menu</b>                                                                       |
+| ---------------------------------------------------------------------------------------- |
+| <a href="#--------"><img src="screenshots/rofi_menu.png" alt="bottom panel preview"></a> |
 
-<b>Lock Screen</b>             |  <b>Login Screen</b>  
-:-------------------------:|:-------------------------:
-<a href="#--------"><img src="screenshots/lock_screen.png" alt="bottom panel preview"></a>  |  <a href="#--------"><img src="screenshots/login_screen.png" alt="bottom panel preview"></a>
+|                                     <b>Lock Screen</b>                                     |                                     <b>Login Screen</b>                                     |
+| :----------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: |
+| <a href="#--------"><img src="screenshots/lock_screen.png" alt="bottom panel preview"></a> | <a href="#--------"><img src="screenshots/login_screen.png" alt="bottom panel preview"></a> |
 
 ## Installation
 Don't
@@ -58,7 +58,7 @@ just ... just don't
 ## To-DO
 
 - [ ] setup global color files
-- [ ] wallpaper changer
+- [ ] wallpaper changer (rofi script like https://github.com/develcooking/hyprland-dotfiles/blob/main/.config/rofi/wallpaper-launcher.sh) or wall-d
 
 ## Credits old44Bars
 > **Note**
