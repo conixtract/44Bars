@@ -29,6 +29,7 @@ window#waybar {
 #cpu,
 #battery,
 #disk,
+#network,
 #tray {
 	background: #1a1a1a;
 }
@@ -66,11 +67,15 @@ window#waybar {
 }
 
 #battery {
-	color: #859900;
+	color: #9BC53D;
 }
 
 #disk {
-	color: #b58900;
+	color: #FDE74C;
+}
+
+#network {
+	color: #FC6471;
 }
 
 #clock,
@@ -78,6 +83,7 @@ window#waybar {
 #memory,
 #cpu,
 #battery,
+#network,
 #disk {
 	padding: 0 10px;
 }
