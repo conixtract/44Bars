@@ -106,7 +106,7 @@ in
       ls = "ls --color=auto";
       update = "sudo nixos-rebuild switch";
       upgrade = "nix-channel --update && sudo nixos-rebuild switch --upgrade";
-      take-out-trash = "sudo nix-collect-garbage --delete-older-than 5d";
+      take-out-trash = "sudo nix-collect-garbage --delete-older-than 5d && nix-store --gc";
       open = "xdg-open";
       vpn = ''sudo openconnect -v vpn.rwth-aachen.de --useragent=AnyConnect -b --authgroup="RWTH-VPN (Full Tunnel)" --user="fx245575"'';
       koki = "cd ~/dev/KoKi-Website/ && nix-shell shell.nix";
@@ -169,7 +169,7 @@ in
   #   };
   # };
 
-  nixpkgs.config.permittedInsecurePackages = [ "beekeeper-studio-5.1.5" ];
+  nixpkgs.config.permittedInsecurePackages = [ "beekeeper-studio-5.2.9" ];
 
   home = {
     file = {
