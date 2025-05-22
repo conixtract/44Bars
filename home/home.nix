@@ -71,12 +71,10 @@ in
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
-    # waybar = {
-    #   enable = true;
-    #   systemd.enable = false;
-    #   settings = { };
-    #   style = builtins.readFile ./config/waybar/style.css;
-    # };
+    waybar = {
+      enable = true;
+      systemd.enable = true;
+    };
     hyprlock = {
       enable = true;
     };
@@ -84,6 +82,16 @@ in
       enable = true;
       settings = { };
     };
+  };
+  xdg.portal = {
+    enable = true;
+    # we need both because "xdg-desktop-portal 1.17 reworked config" is weird
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr # this is for waybar to work
+    ];
+    configPackages = with pkgs; [
+      xdg-desktop-portal-wlr
+    ];
   };
 
   programs.java = {
@@ -94,7 +102,7 @@ in
     enable = true;
     autosuggestion.enable = true;
     enableCompletion = true;
-    initExtra =
+    initContent =
       ''
         eval "$(direnv hook zsh)"
         LFCD=${HOME}/44Bars/home/scripts/lfcd.sh
@@ -154,8 +162,12 @@ in
   xdg.configFile."sway/config".source = lib.mkForce (
     config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/sway/sway.conf"
   );
-  # xdg.configFile."waybar/config".source = lib.mkForce
-  #   (config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/waybar/waybar.conf");
+  xdg.configFile."waybar/config".source = lib.mkForce (
+    config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/waybar/waybar.conf"
+  );
+  xdg.configFile."waybar/style.css".source = lib.mkForce (
+    config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/waybar/style.css"
+  );
 
   xdg.mimeApps.defaultApplications = {
     "inode/directory" = [ "lf.desktop" ];
