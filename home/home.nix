@@ -195,6 +195,7 @@ in
 
     packages = with pkgs; [
       floorp
+      imagemagick
       wl-clipboard
       hyprshot
       nixpkgs-fmt
