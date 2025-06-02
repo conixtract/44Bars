@@ -34,6 +34,7 @@
             "path": "zsh"
         },
     },
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
     "files.insertFinalNewline": true,
     // ----------------------------------------------------------------
     //syncing
@@ -48,7 +49,7 @@
     // ####################### Copilot SETTINGS ####################
     "github.copilot.nextEditSuggestions.enabled": true,
     "github.copilot.enable": {
-        "*": true,
+        "*": false,
         "plaintext": false,
         "markdown": false,
         "scminput": false,
@@ -80,7 +81,7 @@
     // git stuff
     "diffEditor.ignoreTrimWhitespace": false,
     "git.openRepositoryInParentFolders": "never",
-    "git.statusLimit": 20,
+    "git.statusLimit": 25,
     "git.confirmSync": false,
     "gitlens.ai.model": "vscode",
     "gitlens.ai.vscode.model": "copilot:gpt-4o",
@@ -179,7 +180,7 @@
         "error",
         "warning"
     ],
-    "errorLens.enabled": false,
+    "errorLens.enabled": true,
     // ----------------------------------------------------------------
     // tree todo
     "todo-tree.general.tags": [

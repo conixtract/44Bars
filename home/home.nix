@@ -107,7 +107,8 @@ in
         eval "$(direnv hook zsh)"
         LFCD=${HOME}/44Bars/home/scripts/lfcd.sh
       ''
-      + builtins.readFile ./scripts/lfcd.sh;
+      + builtins.readFile ./scripts/lfcd.sh
+      + builtins.readFile ./config/zsh/.zshrc;
 
     shellAliases = {
       la = "ls -a -l -h";
@@ -126,7 +127,11 @@ in
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ ];
+      custom = "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k";
+      theme = "powerlevel10k";
+      plugins = [
+        "git"
+      ];
     };
   };
 
@@ -195,6 +200,7 @@ in
 
     packages = with pkgs; [
       floorp
+      zsh-powerlevel10k
       imagemagick
       wl-clipboard
       hyprshot
@@ -222,6 +228,8 @@ in
       kdePackages.okular
       tree
       include-what-you-use
+      gh
+      rustfmt
     ];
 
     sessionVariables = {
