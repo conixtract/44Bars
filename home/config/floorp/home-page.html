@@ -14,12 +14,17 @@
         <div class="floating-box">
             <div id="art">
                 <div id="image">
-                    <img src="../../wallpapers/rebecca_grafitti.jpeg" alt="Art">
-                    <!-- <img src="../../wallpapers/rebecca_hoodie.jpg" alt="Art"> -->
+                    <img src="./assets/rebecca_grafitti.jpeg" alt="Art">
+                    <!-- <img src="./assets/rebecca_hoodie.jpg" alt="Art"> -->
                     <div id="subtitle-box">あなたの家に泊まりたいです</div>
                 </div>
             </div>
             <div id="bookmark-container">
+                <div class="search-container">
+                    <form id="searchForm" action="https://www.google.com/search" method="GET" target="_blank">
+                        <input type="text" name="q" placeholder="Search" autofocus />
+                    </form>
+                </div>
                 <div class="bookmark-set red">
                     <div class="bookmark-title">daily</div>
                     <div class="bookmark-inner-container">
@@ -78,6 +83,11 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("click", function () {
+            document.querySelector("input[type='text']").focus();
+        });
+    </script>
 </body>
 
 </html>

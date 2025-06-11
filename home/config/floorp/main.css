@@ -5,7 +5,7 @@
     src: url("../../fonts/Kyok-medium.otf") format('truetype'); */
 
     font-family: "Fira Code";
-    src: url("../../fonts/FiraCode-Medium.ttf") format('truetype');
+    src: url("./assets/fonts/FiraCode-Medium.ttf") format('truetype');
 }
 
 :root {
@@ -18,7 +18,7 @@
 body {
     background-color: var(--background);
     /* background-image: url("../../wallpapers/2736x1824/rebecca_good_ending.jpeg"); */
-    background-image: url("../../wallpapers/nebula2.png");
+    background-image: url("./assets/nebula2.png");
     background-size: cover;
     margin: 0px;
     width: 100vw;
@@ -190,4 +190,41 @@ div.divider {
         opacity: 1;
         width: 100%;
     }
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px;
+    padding-top: 10px;
+    width: 100%;
+}
+
+#searchForm {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+input[type="text"] {
+    padding: 8px;
+    width: 400px;
+    border: 1px solid var(--background);
+    background-color: var(--background--floating);
+    border-radius: 10px;
+    border-width: 2px;
+    color: var(--foreground);
+}
+
+input[type="text"]:focus {
+    border-color: var(--color2);
+    /* Change border color */
+    background-color: var(--background-floating);
+    /* Adjust background color */
+    color: var(--foreground);
+    /* Text color */
+    outline: none;
+    /* Remove default outline */
 }
