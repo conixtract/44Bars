@@ -13,7 +13,7 @@ in
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    configPath = "/tmp/rofi-generated-but-ignored.rasi"; # lul hack
+    configPath = "/.tmp/rofi-generated-but-ignored.rasi"; # lul hack
   };
   xdg.configFile."rofi/config.rasi".source = (
     config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/rofi/rofi.conf"

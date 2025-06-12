@@ -3,15 +3,12 @@
     // ###################### GENERAL SETTINGS ########################
     // theme & ui
     "workbench.colorTheme": "Dracula Theme",
-    "window.menuBarVisibility": "hidden",
     "window.commandCenter": false,
     "window.titleBarStyle": "native",
-    "window.customTitleBarVisibility": "never",
     "editor.minimap.enabled": false,
     "chat.commandCenter.enabled": false,
     "window.zoomLevel": 0,
     "workbench.activityBar.location": "top",
-    "workbench.layoutControl.enabled": false,
     "workbench.startupEditor": "none",
     "problems.showCurrentInStatus": false,
     "workbench.editor.tabSizing": "fixed",
@@ -49,7 +46,7 @@
     // ####################### Copilot SETTINGS ####################
     "github.copilot.nextEditSuggestions.enabled": true,
     "github.copilot.enable": {
-        "*": false,
+        "*": true,
         "plaintext": false,
         "markdown": false,
         "scminput": false,
@@ -210,6 +207,9 @@
         ],
     },
     "security.workspace.trust.untrustedFiles": "open",
-    "workbench.editor.showTabs": "none",
+    "editor.formatOnSaveMode": "modificationsIfAvailable",
     "workbench.statusBar.visible": false,
+    "window.menuBarVisibility": "toggle",
+    "workbench.layoutControl.enabled": false,
+    "window.customTitleBarVisibility": "never",
 }

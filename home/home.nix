@@ -114,7 +114,7 @@ in
       la = "ls -a -l -h";
       ls = "ls --color=auto";
       update = "sudo nixos-rebuild switch";
-      upgrade = "nix-channel --update && sudo nixos-rebuild switch --upgrade";
+      upgrade = "sudo nix-channel --update && sudo nixos-rebuild switch --upgrade";
       take-out-trash = "sudo nix-collect-garbage --delete-older-than 5d && nix-store --gc";
       open = "xdg-open";
       vpn = ''sudo openconnect -v vpn.rwth-aachen.de --useragent=AnyConnect -b --authgroup="RWTH-VPN (Full Tunnel)" --user="fx245575"'';
