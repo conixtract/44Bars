@@ -83,22 +83,21 @@ in
 
   services.strongswan.enable = true;
 
-  services.xserver = {
-    enable = true; # naming is just weird, this does not enable x11
-
+  services = {
     displayManager.gdm = {
       enable = true;
       wayland = true; # Ensure GDM is using Wayland
     };
     desktopManager = {
-      xterm.enable = false;
       gnome.enable = false; # Disable GNOME desktop
     };
     #* i3 stuff
-    windowManager.i3.enable = true;
-    xkb = {
-      layout = "de";
-      variant = "neo_qwertz";
+    xserver = {
+      windowManager.i3.enable = true;
+      xkb = {
+        layout = "de";
+        variant = "neo_qwertz";
+      };
     };
   };
 
@@ -110,7 +109,7 @@ in
     enable = true;
     settings = {
       START_CHARGE_THRESH_BAT0 = 0;
-      STOP_CHARGE_THRESH_BAT0 = 85;
+      STOP_CHARGE_THRESH_BAT0 = 100;
     };
   };
 
