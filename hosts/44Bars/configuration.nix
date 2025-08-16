@@ -81,7 +81,8 @@ in
 
   # only for koch vpn details, disable afterwards
 
-  services.strongswan.enable = true;
+  # services.strongswan.enable = true;
+  services.strongswan-swanctl.enable = true;
 
   services = {
     displayManager.gdm = {
@@ -102,6 +103,7 @@ in
   };
 
   hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
 
   # power management
   powerManagement.enable = true;

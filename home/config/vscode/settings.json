@@ -14,6 +14,11 @@
     "workbench.editor.tabSizing": "fixed",
     "editor.scrollbar.vertical": "hidden",
     "editor.scrollbar.horizontal": "hidden",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.formatOnSaveMode": "modificationsIfAvailable",
+    "window.menuBarVisibility": "hidden",
+    "workbench.layoutControl.enabled": false,
+    "window.customTitleBarVisibility": "never",
     // ----------------------------------------------------------------
     // editor & terminal
     "editor.fontFamily": "Fira Code",
@@ -24,6 +29,8 @@
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
     "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.indentSize": "tabSize",
     "terminal.integrated.tabs.location": "left",
     "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.profiles.linux": {
@@ -35,9 +42,6 @@
     "files.insertFinalNewline": true,
     // ----------------------------------------------------------------
     //syncing
-    "settingsSync.ignoredExtensions": [
-        "mkhl.direnv",
-    ],
     "settingsSync.ignoredSettings": [
         "window.titleBarStyle",
         "window.customTitleBarVisibility",
@@ -53,7 +57,7 @@
         "cpp": true,
         "latex": true
     },
-    "inlineChat.enableV2": true,
+    "inlineChat.enableV2": false,
     // ----------------------------------------------------------------
     // ####################### EXTENSIONS SETTINGS ####################
     // cpp
@@ -78,7 +82,7 @@
     // git stuff
     "diffEditor.ignoreTrimWhitespace": false,
     "git.openRepositoryInParentFolders": "never",
-    "git.statusLimit": 25,
+    "git.statusLimit": 50,
     "git.confirmSync": false,
     "gitlens.ai.model": "vscode",
     "gitlens.ai.vscode.model": "copilot:gpt-4o",
@@ -193,7 +197,8 @@
         "todo",
         "lastedit",
         "LASTEDIT",
-        "last edit"
+        "last edit",
+        "opt"
     ],
     "todo-tree.general.tagGroups": {
         "TODO": [
@@ -206,10 +211,7 @@
             "last edit"
         ],
     },
-    "security.workspace.trust.untrustedFiles": "open",
-    "editor.formatOnSaveMode": "modificationsIfAvailable",
+    "terminal.integrated.stickyScroll.enabled": true,
+    "security.workspace.trust.banner": "never",
     "workbench.statusBar.visible": false,
-    "window.menuBarVisibility": "toggle",
-    "workbench.layoutControl.enabled": false,
-    "window.customTitleBarVisibility": "never",
 }
