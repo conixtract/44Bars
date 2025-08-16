@@ -120,7 +120,7 @@ in
       vpn = ''sudo openconnect -v vpn.rwth-aachen.de --useragent=AnyConnect -b --authgroup="RWTH-VPN (Full Tunnel)" --user="fx245575"'';
       koki = "cd ~/dev/KoKi-Website/ && nix-shell shell.nix";
       connect-koch-vpn = "sudo swanctl --load-all --file ~/.config/strongswan/swanctl.conf && sudo swanctl --initiate --child net";
-      disconnect-koch-vpn = "sudo swanctl --terminate --child net";
+      disconnect-koch-vpn = "sudo swanctl --terminate --child net && sudo systemctl restart strongswan-swanctl.service";
       nix = "code ~/44Bars";
       hiwi = "cd ~/dev/fracturing && nix-shell shell.nix";
     };
