@@ -5,7 +5,7 @@
 
 ![OS](https://img.shields.io/badge/OS-NixOS-%230E9DF1?style=for-the-badge)
 ![compositor](https://img.shields.io/badge/compositor-sway-green?style=for-the-badge)
-![Bar](https://img.shields.io/badge/Bar-swaybar-%23FF007E?style=for-the-badge)
+![Bar](https://img.shields.io/badge/Bar-waybar-%23FF007E?style=for-the-badge)
 
 ![Menu](https://img.shields.io/badge/Menu-Rofi-%23FF6D00?style=for-the-badge)
 ![Terminal](https://img.shields.io/badge/Terminal-alacritty-%2300DC8D?style=for-the-badge)
