@@ -18,10 +18,9 @@
 ## Nix
 ```
 home/
-    forestgump/
-        config/
-        home.nix
-        ...
+    config/
+    home.nix
+    ...
 hosts/
     44Bars/
         hardware-configuration.nix
