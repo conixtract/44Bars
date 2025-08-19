@@ -16,7 +16,6 @@
     "editor.scrollbar.horizontal": "hidden",
     "security.workspace.trust.untrustedFiles": "open",
     "editor.formatOnSaveMode": "modificationsIfAvailable",
-    "window.menuBarVisibility": "hidden",
     "workbench.layoutControl.enabled": false,
     "window.customTitleBarVisibility": "never",
     // ----------------------------------------------------------------
@@ -201,6 +200,12 @@
         "opt"
     ],
     "todo-tree.general.tagGroups": {
+        "OPT": [
+            "opt",
+            "OPT",
+            "optimization",
+            "OPTIMIZATION"
+        ],
         "TODO": [
             "TODO",
             "todo"
@@ -211,7 +216,15 @@
             "last edit"
         ],
     },
+    "todo-tree.highlights.customHighlight": {
+        "OPT": {
+            "foreground": "yellow",
+            "type": "line"
+        }
+    },
     "terminal.integrated.stickyScroll.enabled": true,
     "security.workspace.trust.banner": "never",
     "workbench.statusBar.visible": false,
+    "window.menuBarVisibility": "hidden",
+    "workbench.editor.showTabs": "none",
 }
