@@ -102,13 +102,12 @@ in
     enable = true;
     autosuggestion.enable = true;
     enableCompletion = true;
-    initContent =
-      ''
-        eval "$(direnv hook zsh)"
-        LFCD=${HOME}/44Bars/home/scripts/lfcd.sh
-      ''
-      + builtins.readFile ./scripts/lfcd.sh
-      + builtins.readFile ./config/zsh/.zshrc;
+    initContent = ''
+      eval "$(direnv hook zsh)"
+      LFCD=${HOME}/44Bars/home/scripts/lfcd.sh
+    ''
+    + builtins.readFile ./scripts/lfcd.sh
+    + builtins.readFile ./config/zsh/.zshrc;
 
     shellAliases = {
       la = "ls -a -l -h";
@@ -138,7 +137,7 @@ in
   programs.git = {
     enable = true;
 
-    extraConfig = {
+    settings = {
       alias = {
         lg = "lg1";
         lg1 = "lg1-specific --all";
@@ -188,7 +187,7 @@ in
   #   };
   # };
 
-  nixpkgs.config.permittedInsecurePackages = [ "beekeeper-studio-5.2.12" ];
+  nixpkgs.config.permittedInsecurePackages = [ "beekeeper-studio-5.3.4" ];
 
   home = {
     file = {
@@ -201,7 +200,7 @@ in
     };
 
     packages = with pkgs; [
-      floorp
+      floorp-bin
       zsh-powerlevel10k
       imagemagick
       wl-clipboard
@@ -232,8 +231,8 @@ in
       include-what-you-use
       gh
       rustfmt
-steam
-
+      power-profiles-daemon
+      desmume
     ];
 
     sessionVariables = {

@@ -47,9 +47,9 @@ in
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  services.logind.extraConfig = ''
-    HandlePowerKey=ignore
-  '';
+  services.logind.settings.Login = {
+    HandlePowerKey = "ignore";
+  };
 
   # audio
   services.pipewire = {
@@ -146,7 +146,7 @@ in
     dejavu_fonts
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     fira-code
     monaspace
   ];
