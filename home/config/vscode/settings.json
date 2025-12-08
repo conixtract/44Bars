@@ -5,7 +5,6 @@
     "workbench.colorTheme": "Dracula Theme",
     "window.commandCenter": false,
     "window.titleBarStyle": "native",
-    "editor.minimap.enabled": false,
     "chat.commandCenter.enabled": false,
     "window.zoomLevel": 0,
     "workbench.activityBar.location": "top",
@@ -18,6 +17,12 @@
     "editor.formatOnSaveMode": "modificationsIfAvailable",
     "workbench.layoutControl.enabled": false,
     "window.customTitleBarVisibility": "never",
+    "workbench.editor.enablePreview": false,
+    "security.workspace.trust.banner": "never",
+    "window.menuBarVisibility": "hidden",
+    "workbench.editor.showTabs": "none",
+    "editor.minimap.enabled": false,
+    "terminal.integrated.stickyScroll.enabled": true,
     // ----------------------------------------------------------------
     // editor & terminal
     "editor.fontFamily": "Fira Code",
@@ -26,7 +31,7 @@
     // "editor.fontFamily": "Monaspace Argon Var",
     "terminal.integrated.fontFamily": "Fira Code",
     "editor.formatOnPaste": true,
-    "editor.formatOnType": true,
+    "editor.formatOnType": false,
     "editor.formatOnSave": true,
     "editor.tabSize": 4,
     "editor.indentSize": "tabSize",
@@ -39,6 +44,54 @@
     },
     "terminal.integrated.defaultProfile.windows": "Git Bash",
     "files.insertFinalNewline": true,
+    "better-comments.highlightPlainText": true,
+    "better-comments.tags": [
+        {
+            "tag": "!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "//",
+            "color": "#474747",
+            "strikethrough": true,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "*",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+    ],
     // ----------------------------------------------------------------
     //syncing
     "settingsSync.ignoredSettings": [
@@ -85,6 +138,8 @@
     "git.confirmSync": false,
     "gitlens.ai.model": "vscode",
     "gitlens.ai.vscode.model": "copilot:gpt-4o",
+    "gitlens.ai.experimental": false,
+    "gitlens.ai.enabled": false,
     // ----------------------------------------------------------------
     //cmake 
     "cmake.buildBeforeRun": false,
@@ -183,6 +238,9 @@
     "errorLens.enabled": true,
     // ----------------------------------------------------------------
     // tree todo
+    "todo-tree.filtering.ignoreGitSubmodules": true,
+    "todo-tree.highlights.enabled": false,
+    "todo-tree.highlights.foregroundColourScheme": [],
     "todo-tree.general.tags": [
         "BUG",
         "HACK",
@@ -197,15 +255,8 @@
         "lastedit",
         "LASTEDIT",
         "last edit",
-        "opt"
     ],
     "todo-tree.general.tagGroups": {
-        "OPT": [
-            "opt",
-            "OPT",
-            "optimization",
-            "OPTIMIZATION"
-        ],
         "TODO": [
             "TODO",
             "todo"
@@ -216,15 +267,39 @@
             "last edit"
         ],
     },
-    "todo-tree.highlights.customHighlight": {
-        "OPT": {
-            "foreground": "yellow",
-            "type": "line"
-        }
+    "[nix]": {
+        "editor.defaultFormatter": "jnoortheen.nix-ide",
+        "editor.formatOnSaveMode": "file", // <- full file, not partial
+        "editor.codeActionsOnSave": {}
     },
-    "terminal.integrated.stickyScroll.enabled": true,
-    "security.workspace.trust.banner": "never",
+    "nix.formatterPath": "nixfmt", // or "nixpkgs-fmt" or "alejandra"    // ----------------------------------------------------------------
+    // ############## DISABLE SHIT FOR PERFORMANCE ####################
+    // Exclude folders from search / file watchers
+    "files.watcherExclude": {
+        "**/build/**": true,
+        "**/out/**": true,
+        "**/dist/**": true,
+        "**/node_modules/**": true
+    },
+    "search.exclude": {
+        "**/build/**": true,
+        "**/out/**": true,
+        "**/dist/**": true,
+        "**/node_modules/**": true
+    },
+    // Disable automatic TypeScript/JavaScript IntelliSense for non-TS projects
+    "typescript.tsserver.enable": false,
+    "javascript.suggest.enabled": false,
+    // Disable telemetry and update checks
+    "telemetry.telemetryLevel": "off",
+    "update.mode": "manual",
+    //Disable Python/Jupyter autostarts if you don’t use them
+    "python.jediEnabled": false,
+    "python.analysis.indexing": false,
+    // Reduce Git integration cost
+    "git.enabled": true,
+    "git.autorefresh": true,
+    "git.untrackedChanges": "hidden",
+    "git.blame.editorDecoration.enabled": false,
     "workbench.statusBar.visible": false,
-    "window.menuBarVisibility": "hidden",
-    "workbench.editor.showTabs": "none",
 }
