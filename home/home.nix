@@ -120,7 +120,7 @@ in
       koki = "cd ~/dev/KoKi-Website/ && nix-shell shell.nix";
       connect-koch-vpn = "sudo swanctl --load-all --file ~/.config/strongswan/swanctl.conf && sudo swanctl --initiate --child net";
       disconnect-koch-vpn = "sudo swanctl --terminate --child net && sudo systemctl restart strongswan-swanctl.service";
-      nix = "code ~/44Bars";
+      nix-home = "code ~/44Bars";
       hiwi = "cd ~/dev/fracturing && nix-shell shell.nix";
     };
 
@@ -187,7 +187,7 @@ in
   #   };
   # };
 
-  nixpkgs.config.permittedInsecurePackages = [ "beekeeper-studio-5.3.4" ];
+  nixpkgs.config.permittedInsecurePackages = [ "beekeeper-studio-5.5.7" ];
 
   home = {
     file = {
@@ -220,7 +220,7 @@ in
       unzip
       texlive.combined.scheme-full
       tex-fmt # latex formatter
-      nixfmt-rfc-style
+      nixfmt
       swaybg
       i3status
       acpi
@@ -233,6 +233,9 @@ in
       rustfmt
       power-profiles-daemon
       desmume
+      meshlab
+      claude-code
+      anki
     ];
 
     sessionVariables = {
