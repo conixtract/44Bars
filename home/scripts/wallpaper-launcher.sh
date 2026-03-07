@@ -29,8 +29,10 @@ done
 # Select a picture with rofi
 wall_selection=$(find "${wall_dir}" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) -exec basename {} \; | sort | while read -r A; do echo -en "$A\x00icon\x1f""${cacheDir}"/"$A\n"; done | $rofi_command)
 
-# Set the wallpaper
+# safe and set the wallpaper
 [[ -n "$wall_selection" ]] || exit 1
-swaybg -m fill -i ${wall_dir}/${wall_selection}
+echo "${wall_dir}/${wall_selection}" > "${HOME}/.cache/current-wallpaper"
+pkill swaybg || true
+swaybg -m fill -i "${wall_dir}/${wall_selection}" &
 
 exit 0
