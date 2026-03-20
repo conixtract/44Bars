@@ -16,8 +16,7 @@ window#waybar {
 
 #custom-right-arrow-light,
 #custom-left-arrow-light {
-	color: #292b2e;
-	background: #1a1a1a;
+    color: #1a1a1a;
 }
 
 #workspaces,
