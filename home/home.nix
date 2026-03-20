@@ -104,8 +104,8 @@ in
     enableCompletion = true;
     initContent = ''
       eval "$(direnv hook zsh)"
-      LFCD=${HOME}/44Bars/home/scripts/lfcd.sh
     ''
+    # LFCD=${HOME}/44Bars/home/scripts/lfcd.sh
     + builtins.readFile ./scripts/lfcd.sh
     + builtins.readFile ./config/zsh/.zshrc;
 
@@ -130,6 +130,21 @@ in
       theme = "powerlevel10k";
       plugins = [
         "git"
+      ];
+    };
+  };
+
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+    keymap = {
+      mgr.prepend_keymap = [
+        {
+          # The key you want to press — "!" is yazi's default for this, but pick anything
+          on = "!";
+          run = ''shell "zsh" --block'';
+          desc = "Open shell in current directory";
+        }
       ];
     };
   };
@@ -213,7 +228,6 @@ in
       rsync
       qt6.qtwayland
       libnotify
-      lf
       libqalculate
       killall
       strongswan
