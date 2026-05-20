@@ -114,14 +114,14 @@ in
       ls = "ls --color=auto";
       update = "sudo nixos-rebuild switch";
       upgrade = "sudo nix-channel --update && sudo nixos-rebuild switch --upgrade";
-      take-out-trash = "sudo nix-collect-garbage --delete-older-than 5d && nix-store --gc";
+      take-out-trash = "sudo nix-collect-garbage --delete-older-than 5d && home-manager expire-generations \"-5 days\" && nix-collect-garbage --delete-older-than 5d";
       open = "xdg-open";
       vpn = ''sudo openconnect -v vpn.rwth-aachen.de --useragent=AnyConnect -b --authgroup="RWTH-VPN (Full Tunnel)" --user="fx245575"'';
-      koki = "cd ~/dev/KoKi-Website/ && nix-shell shell.nix";
+      koki = "cd ~/dev/KoKi-Website";
       connect-koch-vpn = "sudo swanctl --load-all --file ~/.config/strongswan/swanctl.conf && sudo swanctl --initiate --child net";
       disconnect-koch-vpn = "sudo swanctl --terminate --child net && sudo systemctl restart strongswan-swanctl.service";
       nix-home = "code ~/44Bars";
-      hiwi = "cd ~/dev/fracturing && nix-shell shell.nix";
+      hiwi = "cd ~/dev/fracturing";
     };
 
     oh-my-zsh = {
@@ -137,6 +137,7 @@ in
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
+    shellWrapperName = "y";
     keymap = {
       mgr.prepend_keymap = [
         {
@@ -151,6 +152,7 @@ in
 
   programs.git = {
     enable = true;
+    signing.format = null;
 
     settings = {
       alias = {
@@ -211,11 +213,11 @@ in
       ".config/Code/User/settings.json".source = lib.mkForce (
         config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/vscode/settings.json"
       );
-
     };
 
     packages = with pkgs; [
       floorp-bin
+      networkmanager_dmenu
       zsh-powerlevel10k
       imagemagick
       wl-clipboard
@@ -249,14 +251,15 @@ in
       desmume
       meshlab
       claude-code
-      anki
+      chromium
+      dnsutils
     ];
 
     sessionVariables = {
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
       EDITOR = "code";
       BROWSER = "floorp";
-      FILE = "lf";
+      FILE = "yazi";
       TERMINAL = "alacritty";
       garden = "${HOME}/Dropbox/digital-garden/";
     };
