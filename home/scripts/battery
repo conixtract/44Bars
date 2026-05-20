@@ -10,10 +10,10 @@ while true; do
     if [[ "$STATE" == "Discharging" ]]; then
         if [[ "$CHARGE" -le 15 ]]; then
             notify-send "Very Low Battery" "Battery is at ${CHARGE}%. Please plug in your charger."
-            sleep 120
+            sleep 180
         elif [[ "$CHARGE" -le 25 ]]; then
             notify-send "Low Battery" "Battery is at ${CHARGE}%. Please plug in your charger."
-            sleep 180
+            sleep 300
         elif [[ "$CHARGE" -le 40 ]]; then
             notify-send "Battery discharging" "Battery is at ${CHARGE}%."
             sleep 900
