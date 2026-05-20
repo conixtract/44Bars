@@ -160,7 +160,6 @@ in
     libsForQt5.qt5.qtgraphicaleffects
     libsecret
     bluez
-    blueberry
     # qemu
     # virt-manager
     # libvirt
