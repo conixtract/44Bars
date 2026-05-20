@@ -1,305 +1,213 @@
 {
-    // ----------------------------------------------------------------
-    // ###################### GENERAL SETTINGS ########################
-    // theme & ui
-    "workbench.colorTheme": "Dracula Theme",
-    "window.commandCenter": false,
-    "window.titleBarStyle": "native",
-    "chat.commandCenter.enabled": false,
-    "window.zoomLevel": 0,
-    "workbench.activityBar.location": "top",
-    "workbench.startupEditor": "none",
-    "problems.showCurrentInStatus": false,
-    "workbench.editor.tabSizing": "fixed",
-    "editor.scrollbar.vertical": "hidden",
-    "editor.scrollbar.horizontal": "hidden",
-    "security.workspace.trust.untrustedFiles": "open",
-    "editor.formatOnSaveMode": "modificationsIfAvailable",
-    "workbench.layoutControl.enabled": false,
-    "window.customTitleBarVisibility": "never",
-    "workbench.editor.enablePreview": false,
-    "security.workspace.trust.banner": "never",
-    "window.menuBarVisibility": "hidden",
-    "workbench.editor.showTabs": "none",
-    "editor.minimap.enabled": false,
-    "terminal.integrated.stickyScroll.enabled": true,
-    // ----------------------------------------------------------------
-    // editor & terminal
-    "editor.fontFamily": "Fira Code",
-    "editor.fontSize": 14,
-    "editor.fontLigatures": true,
-    // "editor.fontFamily": "Monaspace Argon Var",
-    "terminal.integrated.fontFamily": "Fira Code",
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": false,
-    "editor.formatOnSave": true,
-    "editor.tabSize": 4,
-    "editor.indentSize": "tabSize",
-    "terminal.integrated.tabs.location": "left",
-    "terminal.integrated.defaultProfile.linux": "zsh",
-    "terminal.integrated.profiles.linux": {
-        "zsh": {
-            "path": "zsh"
-        },
+  // -- theme & semantic highlighting --
+  "workbench.colorTheme": "Dracula Theme",
+  "editor.semanticHighlighting.enabled": true,
+  "editor.semanticTokenColorCustomizations": {
+    "[Dracula Theme]": {
+      "rules": {
+        "property": "#FF5555",
+      },
     },
-    "terminal.integrated.defaultProfile.windows": "Git Bash",
-    "files.insertFinalNewline": true,
-    "better-comments.highlightPlainText": true,
-    "better-comments.tags": [
-        {
-            "tag": "!",
-            "color": "#FF2D00",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        },
-        {
-            "tag": "?",
-            "color": "#3498DB",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        },
-        {
-            "tag": "//",
-            "color": "#474747",
-            "strikethrough": true,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        },
-        {
-            "tag": "todo",
-            "color": "#FF8C00",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        },
-        {
-            "tag": "*",
-            "color": "#98C379",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        }
-    ],
-    // ----------------------------------------------------------------
-    //syncing
-    "settingsSync.ignoredSettings": [
-        "window.titleBarStyle",
-        "window.customTitleBarVisibility",
-    ],
-    // ----------------------------------------------------------------
-    // ####################### Copilot SETTINGS ####################
-    "github.copilot.nextEditSuggestions.enabled": true,
-    "github.copilot.enable": {
-        "*": true,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false,
-        "cpp": true,
-        "latex": true
+  },
+  // -- window & workbench chrome --
+  "window.commandCenter": false,
+  "window.titleBarStyle": "native",
+  "window.zoomLevel": 0,
+  "window.menuBarVisibility": "hidden",
+  "workbench.activityBar.location": "top",
+  "workbench.startupEditor": "none",
+  "workbench.layoutControl.enabled": false,
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.tabSizing": "fixed",
+  "workbench.editor.showTabs": "none",
+  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.statusBar.visible": false,
+  "problems.showCurrentInStatus": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "security.workspace.trust.banner": "never",
+  "editor.minimap.enabled": false,
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.horizontal": "hidden",
+  // -- editor & terminal --
+  "editor.fontFamily": "Fira Code",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.tabSize": 4,
+  "editor.indentSize": "tabSize",
+  "editor.detectIndentation": false,
+  "terminal.integrated.fontFamily": "Fira Code",
+  "terminal.integrated.tabs.location": "left",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.profiles.linux": {
+    "zsh": {
+      "path": "zsh",
     },
-    "inlineChat.enableV2": false,
-    // ----------------------------------------------------------------
-    // ####################### EXTENSIONS SETTINGS ####################
-    // cpp
-    "C_Cpp.autocompleteAddParentheses": true,
-    "C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "sameLine",
-    "C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "sameLine",
-    "C_Cpp.vcFormat.newLine.beforeOpenBrace.lambda": "sameLine",
-    "C_Cpp.vcFormat.newLine.beforeOpenBrace.namespace": "sameLine",
-    "C_Cpp.vcFormat.newLine.beforeOpenBrace.type": "sameLine",
-    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, TabWidth: 4, ColumnLimit: 0}",
-    "[cpp]": {
-        "editor.defaultFormatter": "xaver.clang-format"
-    },
-    "workbench.settings.applyToAllProfiles": [
-        "C_Cpp.clang_format_style",
-        "C_Cpp.clang_format_fallbackStyle"
-    ],
-    // ----------------------------------------------------------------
-    // ssh
-    "remote.SSH.configFile": "~/.ssh/config",
-    // ----------------------------------------------------------------
-    // git stuff
-    "diffEditor.ignoreTrimWhitespace": false,
-    "git.openRepositoryInParentFolders": "never",
-    "git.statusLimit": 50,
-    "git.confirmSync": false,
-    "gitlens.ai.model": "vscode",
-    "gitlens.ai.vscode.model": "copilot:gpt-4o",
-    "gitlens.ai.experimental": false,
-    "gitlens.ai.enabled": false,
-    // ----------------------------------------------------------------
-    //cmake 
-    "cmake.buildBeforeRun": false,
-    "cmake.options.statusBarVisibility": "compact",
-    "cmake.pinnedCommands": [
-        "workbench.action.tasks.configureTaskRunner",
-        "workbench.action.tasks.runTask"
-    ],
-    "cmake.showNotAllDocumentsSavedQuestion": false,
-    "cmake.options.advanced": {
-        "build": {
-            "statusBarVisibility": "inherit",
-            "inheritDefault": "visible"
-        },
-        "launch": {
-            "statusBarVisibility": "inherit",
-            "inheritDefault": "visible"
-        },
-        "debug": {
-            "statusBarVisibility": "hidden",
-            "inheritDefault": "hidden"
-        },
-        "cpack": {
-            "statusBarVisibility": "hidden",
-            "inheritDefault": "hidden"
-        },
-        "workflow": {
-            "statusBarVisibility": "hidden",
-            "inheritDefault": "hidden"
-        },
-        "launchTarget": {
-            "statusBarVisibility": "hidden",
-            "inheritDefault": "hidden"
-        },
-        "buildTarget": {
-            "statusBarVisibility": "hidden",
-            "inheritDefault": "hidden"
-        }
-    },
-    // ----------------------------------------------------------------
-    // latex
-    "latex-workshop.latex.autoBuild.run": "onSave",
-    "ltex.java.path": "/home/forestgump/.nix-profile/",
-    // define external tools
-    "latex-workshop.latex.tools": [
-        {
-            "name": "pdflatex",
-            "command": "pdflatex",
-            "args": [
-                "-interaction=nonstopmode",
-                "-synctex=1",
-                "%DOCFILE%"
-            ]
-        },
-        {
-            "name": "biber",
-            "command": "biber",
-            "args": [
-                "%DOCFILE%"
-            ]
-        }
-    ],
-    // define recipes
-    "latex-workshop.latex.recipes": [
-        {
-            "name": "pdflatex → biber → pdflatex²",
-            "tools": [
-                "pdflatex",
-                "biber",
-                "pdflatex",
-                "pdflatex"
-            ]
-        },
-        {
-            "name": "pdflatex → bibtex → pdflatex²",
-            "tools": [
-                "pdflatex",
-                "bibtex",
-                "pdflatex",
-                "pdflatex"
-            ]
-        },
-        {
-            "name": "simple pdflatex",
-            "tools": [
-                "pdflatex"
-            ]
-        }
-    ],
-    // ----------------------------------------------------------------
-    // error lens
-    "errorLens.enabledDiagnosticLevels": [
-        "error",
-        "warning"
-    ],
-    "errorLens.enabled": true,
-    // ----------------------------------------------------------------
-    // tree todo
-    "todo-tree.filtering.ignoreGitSubmodules": true,
-    "todo-tree.highlights.enabled": false,
-    "todo-tree.highlights.foregroundColourScheme": [],
-    "todo-tree.general.tags": [
-        "BUG",
-        "HACK",
-        "FIXME",
-        "TODO",
-        "XXX",
-        "[ ]",
-        "[x]",
-        "?",
-        "!",
-        "todo",
-        "lastedit",
-        "LASTEDIT",
-        "last edit",
-    ],
-    "todo-tree.general.tagGroups": {
-        "TODO": [
-            "TODO",
-            "todo"
-        ],
-        "LASTEDIT": [
-            "lastedit",
-            "LASTEDIT",
-            "last edit"
-        ],
-    },
-    "[nix]": {
-        "editor.defaultFormatter": "jnoortheen.nix-ide",
-        "editor.formatOnSaveMode": "file", // <- full file, not partial
-        "editor.codeActionsOnSave": {}
-    },
-    "nix.formatterPath": "nixfmt", // or "nixpkgs-fmt" or "alejandra"    // ----------------------------------------------------------------
-    // ############## DISABLE SHIT FOR PERFORMANCE ####################
-    // Exclude folders from search / file watchers
-    "files.watcherExclude": {
-        "**/build/**": true,
-        "**/out/**": true,
-        "**/dist/**": true,
-        "**/node_modules/**": true
-    },
-    "search.exclude": {
-        "**/build/**": true,
-        "**/out/**": true,
-        "**/dist/**": true,
-        "**/node_modules/**": true
-    },
-    // Disable automatic TypeScript/JavaScript IntelliSense for non-TS projects
-    "typescript.tsserver.enable": false,
-    "javascript.suggest.enabled": false,
-    // Disable telemetry and update checks
-    "telemetry.telemetryLevel": "off",
-    "update.mode": "manual",
-    //Disable Python/Jupyter autostarts if you don’t use them
-    "python.jediEnabled": false,
-    "python.analysis.indexing": false,
-    // Reduce Git integration cost
-    "git.enabled": true,
-    "git.autorefresh": true,
-    "git.untrackedChanges": "hidden",
-    "git.blame.editorDecoration.enabled": false,
-    "workbench.statusBar.visible": false,
+  },
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "files.insertFinalNewline": true,
+  // -- sync --
+  "settingsSync.ignoredSettings": [
+    "window.titleBarStyle",
+    "window.customTitleBarVisibility",
+  ],
+  "chat.agent.enabled": false,
+  "chat.autopilot.enabled": false,
+  "chat.agent.maxRequests": 250,
+  "chat.disableAIFeatures": true,
+  "chat.viewSessions.orientation": "stacked",
+  "claudeCode.preferredLocation": "panel",
+  // -- ssh --
+  "remote.SSH.configFile": "~/.ssh/config",
+  // -- git --
+  "diffEditor.ignoreTrimWhitespace": false,
+  "git.openRepositoryInParentFolders": "never",
+  "git.statusLimit": 50,
+  "git.confirmSync": false,
+  "git.enabled": true,
+  "git.autorefresh": true,
+  "git.untrackedChanges": "separate",
+  "git.blame.editorDecoration.enabled": false,
+  "git.decorations.enabled": true,
+  "explorer.decorations.colors": true,
+  "explorer.decorations.badges": true,
+  // -- error lens --
+  "errorLens.enabled": true,
+  "errorLens.enabledDiagnosticLevels": ["error", "warning"],
+  // -- todo tree --
+  "todo-tree.filtering.ignoreGitSubmodules": true,
+  "todo-tree.highlights.enabled": false,
+  "todo-tree.highlights.foregroundColourScheme": [],
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]",
+    "?",
+    "!",
+    "todo",
+    "lastedit",
+    "LASTEDIT",
+    "last edit",
+  ],
+  "todo-tree.general.tagGroups": {
+    "TODO": ["TODO", "todo"],
+    "LASTEDIT": ["lastedit", "LASTEDIT", "last edit"],
+  },
+  // -- nix (Default profile only; not broadcast) --
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide",
+    "editor.formatOnSaveMode": "file",
+    "editor.codeActionsOnSave": {},
+  },
+  // -- performance / behavior --
+  "files.watcherExclude": {
+    "**/build/**": true,
+    "**/out/**": true,
+    "**/dist/**": true,
+    "**/node_modules/**": true,
+    "**/extern/**": true,
+    "**/deprecated/**": true,
+    "**/data/**": true,
+    "**/.direnv/**": true,
+    "**/.cache/**": true,
+    "**/.git/objects/**": true,
+    "**/*.idx": true,
+    "**/*.bin": true,
+    "**/*.o": true,
+  },
+  "search.exclude": {
+    "**/build/**": true,
+    "**/out/**": true,
+    "**/dist/**": true,
+    "**/node_modules/**": true,
+    "**/extern/**": true,
+    "**/deprecated/**": true,
+    "**/data/**": true,
+    "**/.direnv/**": true,
+    "**/*.idx": true,
+    "**/*.bin": true,
+    "**/*.o": true,
+  },
+  "telemetry.telemetryLevel": "off",
+  "update.mode": "manual",
+  // -- broadcast list --
+  "workbench.settings.applyToAllProfiles": [
+    "workbench.colorTheme",
+    "editor.semanticHighlighting.enabled",
+    "editor.semanticTokenColorCustomizations",
+    "workbench.colorCustomizations",
+    "window.commandCenter",
+    "window.titleBarStyle",
+    "window.customTitleBarVisibility",
+    "window.zoomLevel",
+    "window.menuBarVisibility",
+    "workbench.activityBar.location",
+    "workbench.startupEditor",
+    "workbench.layoutControl.enabled",
+    "workbench.editor.enablePreview",
+    "workbench.editor.tabSizing",
+    "workbench.editor.showTabs",
+    "workbench.editor.editorActionsLocation",
+    "workbench.statusBar.visible",
+    "problems.showCurrentInStatus",
+    "security.workspace.trust.untrustedFiles",
+    "security.workspace.trust.banner",
+    "editor.minimap.enabled",
+    "editor.scrollbar.vertical",
+    "editor.scrollbar.horizontal",
+    "editor.fontFamily",
+    "editor.fontSize",
+    "editor.fontLigatures",
+    "editor.formatOnPaste",
+    "editor.formatOnType",
+    "editor.formatOnSave",
+    "editor.formatOnSaveMode",
+    "editor.tabSize",
+    "editor.indentSize",
+    "editor.detectIndentation",
+    "terminal.integrated.fontFamily",
+    "terminal.integrated.tabs.location",
+    "terminal.integrated.defaultProfile.linux",
+    "terminal.integrated.profiles.linux",
+    "terminal.integrated.defaultProfile.windows",
+    "files.insertFinalNewline",
+    "settingsSync.ignoredSettings",
+    "chat.disableAIFeatures",
+    "chat.agent.maxRequests",
+    "chat.viewSessions.orientation",
+    "claudeCode.preferredLocation",
+    "remote.SSH.configFile",
+    "diffEditor.ignoreTrimWhitespace",
+    "git.openRepositoryInParentFolders",
+    "git.statusLimit",
+    "git.confirmSync",
+    "git.enabled",
+    "git.autorefresh",
+    "git.untrackedChanges",
+    "git.blame.editorDecoration.enabled",
+    "git.decorations.enabled",
+    "explorer.decorations.colors",
+    "explorer.decorations.badges",
+    "errorLens.enabled",
+    "errorLens.enabledDiagnosticLevels",
+    "todo-tree.filtering.ignoreGitSubmodules",
+    "todo-tree.highlights.enabled",
+    "todo-tree.highlights.foregroundColourScheme",
+    "todo-tree.general.tags",
+    "todo-tree.general.tagGroups",
+    "[jsonc]",
+    "files.watcherExclude",
+    "search.exclude",
+    "javascript.suggest.enabled",
+    "telemetry.telemetryLevel",
+    "update.mode",
+  ],
+  "window.customTitleBarVisibility": "never",
 }
