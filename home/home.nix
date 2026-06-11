@@ -192,8 +192,23 @@ in
     config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/waybar/style.css"
   );
 
-  xdg.mimeApps.defaultApplications = {
-    "inode/directory" = [ "lf.desktop" ];
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/pdf" = "floorp.desktop";
+      "text/html" = "floorp.desktop";
+      "x-scheme-handler/http" = "floorp.desktop";
+      "x-scheme-handler/https" = "floorp.desktop";
+      "x-scheme-handler/chrome" = "floorp.desktop";
+      "application/xhtml+xml" = "floorp.desktop";
+      "application/x-extension-htm" = "floorp.desktop";
+      "application/x-extension-html" = "floorp.desktop";
+      "application/x-extension-shtml" = "floorp.desktop";
+      "application/x-extension-xhtml" = "floorp.desktop";
+      "application/x-extension-xht" = "floorp.desktop";
+      "application/json" = "code.desktop";
+      "text/css" = "code.desktop";
+    };
   };
 
   # virtualiztion
