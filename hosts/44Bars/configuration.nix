@@ -125,6 +125,7 @@ in
   programs.zsh.enable = true;
 
   home-manager.users.forestgump = import ../../home/home.nix;
+  home-manager.backupFileExtension = "backup";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.forestgump = {
