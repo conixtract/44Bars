@@ -155,7 +155,6 @@ in
     brightnessctl
     libsForQt5.qt5.qtgraphicaleffects
     libsecret
-    bluez
     # qemu
     # virt-manager
     # libvirt
