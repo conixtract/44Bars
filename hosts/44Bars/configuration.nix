@@ -25,7 +25,6 @@ in
     powerOnBoot = false;
     settings.General.Experimental = true;
   };
-  services.blueman.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
