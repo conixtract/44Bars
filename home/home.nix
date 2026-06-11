@@ -253,6 +253,7 @@ in
       claude-code
       chromium
       dnsutils
+      blender
     ];
 
     sessionVariables = {
