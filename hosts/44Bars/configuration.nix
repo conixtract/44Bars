@@ -166,8 +166,6 @@ in
     # virt-manager
     # libvirt
     # virt-viewer
-    # dancing-script # for sddm
-    # themes.sddm-sugar-dark # for sddm
   ];
 
   security.pam.services.gdm.enableGnomeKeyring = true;
