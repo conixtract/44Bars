@@ -19,6 +19,13 @@ in
   networking.networkmanager.enable = true;
   networking.hostName = "44Bars"; # Define your hostname.
 
+  services.tailscale = {
+    enable = true;
+    openFirewall = true;
+    useRoutingFeatures = "client";
+    # authKeyFile = "path"; # alternatively use tailscale up
+  };
+
   # bluetooth applet
   hardware.bluetooth = {
     enable = true;
