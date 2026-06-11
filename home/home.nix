@@ -63,7 +63,6 @@ in
     enable = true;
     settings = { };
   };
-  services.blueman-applet.enable = true;
 
   programs = {
     direnv = {
