@@ -84,10 +84,7 @@ in
   services.strongswan-swanctl.enable = true;
 
   services = {
-    displayManager.gdm = {
-      enable = true;
-      wayland = true; # Ensure GDM is using Wayland
-    };
+    displayManager.gdm.enable = true;
     desktopManager = {
       gnome.enable = false; # Disable GNOME desktop
     };
