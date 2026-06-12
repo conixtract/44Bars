@@ -15,8 +15,6 @@ in
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
-
   imports = [
     (import ./config/rofi/default.nix {
       inherit
@@ -207,8 +205,6 @@ in
   #     uris = [ "qemu:///system" ];
   #   };
   # };
-
-  nixpkgs.config.permittedInsecurePackages = [ "beekeeper-studio-5.5.7" ];
 
   home = {
     file = {

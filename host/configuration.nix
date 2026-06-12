@@ -125,6 +125,10 @@ in
 
   home-manager.users.forestgump = import ../home/home.nix;
   home-manager.backupFileExtension = "backup";
+  # Share the system nixpkgs with home-manager instead of evaluating a
+  # second instance (so nixpkgs.config below also applies to home.nix).
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.forestgump = {
@@ -140,6 +144,7 @@ in
   };
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [ "beekeeper-studio-5.5.7" ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.droid-sans-mono
