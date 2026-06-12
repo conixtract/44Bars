@@ -6,7 +6,7 @@
 }:
 
 let
-  DOTFILES = "/home/forestgump/44Bars/home/config";
+  DOTFILES = "${config.home.homeDirectory}/44Bars/home/config";
 in
 {
   programs.rofi = {

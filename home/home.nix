@@ -5,8 +5,8 @@
   ...
 }:
 let
-  HOME = builtins.getEnv "HOME";
-  DOTFILES = "/home/forestgump/44Bars/home/config";
+  HOME = config.home.homeDirectory;
+  DOTFILES = "${config.home.homeDirectory}/44Bars/home/config";
 in
 {
   # some general info
