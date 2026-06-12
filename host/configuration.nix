@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  # themes = pkgs.callPackage ../../derivs/sddm-themes.nix { }; # for sddm
-  # dancing-script = pkgs.callPackage ../../derivs/dancing-script.nix { }; # for sddm
+  gugi-font = pkgs.callPackage ../derivs/gugi-font.nix { };
 in
 {
   imports = [
@@ -153,6 +152,7 @@ in
     noto-fonts-color-emoji
     fira-code
     monaspace
+    gugi-font
   ];
 
   programs.seahorse.enable = true;
