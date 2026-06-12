@@ -5,7 +5,6 @@
   ...
 }:
 let
-  colors = import ../colors/rose.nix { };
   HOME = builtins.getEnv "HOME";
   DOTFILES = "/home/forestgump/44Bars/home/config";
 in
@@ -23,7 +22,6 @@ in
       inherit
         config
         pkgs
-        colors
         lib
         ;
     })
