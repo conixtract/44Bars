@@ -95,9 +95,9 @@ in
     desktopManager = {
       gnome.enable = false; # Disable GNOME desktop
     };
-    #* i3 stuff
+    #* i3 stuff — disabled (using sway now); flip enable to true to get X11/i3 back
     xserver = {
-      windowManager.i3.enable = true;
+      windowManager.i3.enable = false;
       xkb = {
         layout = "de";
         variant = "neo_qwertz";
