@@ -19,7 +19,6 @@ in
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    (import ./config/hyprland/default.nix)
     (import ./config/rofi/default.nix {
       inherit
         config
@@ -53,10 +52,6 @@ in
 
   services.swaync.enable = true;
 
-  services.hyprpaper = {
-    enable = true;
-    settings = { }; # ! set to empty set such that the config file is not generated and i can place my own
-  };
   services.clipman.enable = true;
 
   services.hypridle = {
@@ -172,9 +167,6 @@ in
   };
 
   # override the default config files
-  xdg.configFile."hypr/hyprpaper.conf".source = lib.mkForce (
-    config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/hyprland/hyprpaper.conf"
-  );
   xdg.configFile."hypr/hypridle.conf".source = lib.mkForce (
     config.lib.file.mkOutOfStoreSymlink "${DOTFILES}/hyprland/hypridle.conf"
   );
