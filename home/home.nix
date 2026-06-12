@@ -113,7 +113,7 @@ in
       ls = "ls --color=auto";
       update = "sudo nixos-rebuild switch";
       upgrade = "sudo nix-channel --update && sudo nixos-rebuild switch --upgrade";
-      take-out-trash = "sudo nix-collect-garbage --delete-older-than 5d && home-manager expire-generations \"-5 days\" && nix-collect-garbage --delete-older-than 5d";
+      take-out-trash = "sudo nix-collect-garbage --delete-older-than 5d && nix-collect-garbage --delete-older-than 5d";
       open = "xdg-open";
       vpn = ''sudo openconnect -v vpn.rwth-aachen.de --useragent=AnyConnect -b --authgroup="RWTH-VPN (Full Tunnel)" --user="fx245575"'';
       koki = "cd ~/dev/KoKi-Website";
