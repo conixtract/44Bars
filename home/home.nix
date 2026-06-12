@@ -222,7 +222,6 @@ in
       imagemagick
       wl-clipboard
       hyprshot
-      nixpkgs-fmt
       beekeeper-studio
       openconnect
       obsidian
