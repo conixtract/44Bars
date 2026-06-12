@@ -68,7 +68,7 @@ in
   nix.nixPath = [
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos" # dont change this
     "/nix/var/nix/profiles/per-user/root/channels" # neither this
-    "nixos-config=${config.users.users.forestgump.home}/44Bars/hosts/44Bars/configuration.nix"
+    "nixos-config=${config.users.users.forestgump.home}/44Bars/host/configuration.nix"
   ];
 
   # natural srcolling
@@ -124,7 +124,7 @@ in
   console.keyMap = "de";
   programs.zsh.enable = true;
 
-  home-manager.users.forestgump = import ../../home/home.nix;
+  home-manager.users.forestgump = import ../home/home.nix;
   home-manager.backupFileExtension = "backup";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
