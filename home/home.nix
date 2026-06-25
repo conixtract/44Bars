@@ -111,7 +111,8 @@ in
       connect-koch-vpn = "sudo swanctl --load-all --file ~/.config/strongswan/swanctl.conf && sudo swanctl --initiate --child net";
       disconnect-koch-vpn = "sudo swanctl --terminate --child net && sudo systemctl restart strongswan-swanctl.service";
       nix-home = "code ~/44Bars";
-      hiwi = "cd ~/dev/fracturing";
+      hiwi = "code ~/dev/seamless-parametrization";
+      thesis = "code ~/dev/Ripple";
     };
 
     oh-my-zsh = {
