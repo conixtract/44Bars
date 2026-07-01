@@ -166,7 +166,7 @@ in
     git
     keepassxc
     brightnessctl
-    libsForQt5.qt5.qtgraphicaleffects
+    qt5.qtgraphicaleffects
     libsecret
     # qemu
     # virt-manager
