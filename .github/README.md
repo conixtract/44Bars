@@ -22,16 +22,13 @@ home/
     home.nix
     ...
 hosts/
-    44Bars/
-        hardware-configuration.nix
-        configuration.nix
-    ...
+    hardware-configuration.nix
+    configuration.nix
 ```
 This is the general structure of my dotfiles.
 
 1. hosts/
 - contains machine specific configurations
-- `44Bars` contains the configurations for my current laptop
 
 1. home/
 - contains home-manager(user specific) configurations and resources
