@@ -49,5 +49,4 @@ just ... just don't
 
 ## To-DO
 
-- [ ] setup global color files
-- [ ] wallpaper changer (rofi script like https://github.com/develcooking/hyprland-dotfiles/blob/main/.config/rofi/wallpaper-launcher.sh) or wall-d
+- setup global color files
