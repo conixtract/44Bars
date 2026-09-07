@@ -87,7 +87,7 @@ in
   # only for koch vpn details, disable afterwards
 
   # services.strongswan.enable = true;
-  services.strongswan-swanctl.enable = true;
+  # services.strongswan-swanctl.enable = true;
 
   services = {
     displayManager.gdm.enable = true;
@@ -144,7 +144,6 @@ in
   };
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [ "beekeeper-studio-5.5.7" ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.droid-sans-mono
@@ -177,15 +176,15 @@ in
   security.pam.services.gdm.enableGnomeKeyring = true;
   services.gnome.gnome-keyring.enable = true;
 
-  services.postgresql = {
-    enable = true;
-    authentication = pkgs.lib.mkOverride 10 ''
-      # TYPE  DATABASE  USER      ADDRESS         METHOD
-      local   all       all                       trust
-      host    all       all       127.0.0.1/32    trust
-      host    all       all       ::1/128         trust
-    '';
-  };
+  # services.postgresql = {
+  #   enable = true;
+  #   authentication = pkgs.lib.mkOverride 10 ''
+  #     # TYPE  DATABASE  USER      ADDRESS         METHOD
+  #     local   all       all                       trust
+  #     host    all       all       127.0.0.1/32    trust
+  #     host    all       all       ::1/128         trust
+  #   '';
+  # };
 
   system.stateVersion = "24.05";
 }

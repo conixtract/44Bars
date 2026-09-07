@@ -223,7 +223,6 @@ in
       imagemagick
       wl-clipboard
       hyprshot
-      beekeeper-studio
       openconnect
       obsidian
       feh
@@ -232,7 +231,8 @@ in
       libnotify
       libqalculate
       killall
-      strongswan
+      #   strongswan
+      #   chromium
       unzip
       texlive.combined.scheme-full
       tex-fmt # latex formatter
@@ -251,9 +251,10 @@ in
       desmume
       meshlab
       claude-code
-      chromium
       dnsutils
       blender
+      jdk
+      wakeonlan
     ];
 
     sessionVariables = {
